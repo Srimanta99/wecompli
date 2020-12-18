@@ -13,7 +13,7 @@ class HomeViewBind:DeviceResolution {
     var tv_header_text:TextView?=null
     var content_frame:FrameLayout?=null
     var cirecularimageview: CircleImageView?=null
-    var tv_user_type:TextView?=null
+    var tv_companyname:TextView?=null
     var tv_user_name:TextView?=null
     var tv_user_email:TextView?=null
     var rec_sidemenu:RecyclerView?=null
@@ -33,6 +33,7 @@ class HomeViewBind:DeviceResolution {
     var drawer:LinearLayout?=null
     var mainView:LinearLayout?=null
 
+
     constructor(homeActivity: HomeActivity, view: View):super(homeActivity){
         viewbinds(view)
         settypeface(homeActivity)
@@ -40,16 +41,18 @@ class HomeViewBind:DeviceResolution {
     }
 
     private fun settypeface(homeActivity: HomeActivity) {
-        tv_header_text!!.typeface=getbebas(homeActivity)
-      //  tv_user_type!!.typeface=getbebas(homeActivity)
-        tv_user_name!!.typeface=getbebas(homeActivity)
-        tv_user_email!!.typeface=getgothmlight(homeActivity)
-        tv_lagout!!.typeface=getbebas(homeActivity)
-        tv_repair!!.typeface=getbebas(homeActivity)
-        tv_startcheck!!.typeface=getbebas(homeActivity)
-        tv_docmangment!!.typeface=getbebas(homeActivity)
-        tv_incidentreport!!.typeface=getbebas(homeActivity)
-        tv_adhofault!!.typeface=getbebas(homeActivity)
+        tv_header_text!!.typeface=getwhitneybold(homeActivity)
+
+        tv_companyname!!.typeface=getwhitneybook(homeActivity)
+        tv_user_name!!.typeface=getwhitneybold(homeActivity)
+        tv_user_email!!.typeface=getwhitneybook(homeActivity)
+        tv_lagout!!.typeface=getwhitneybook(homeActivity)
+        tv_repair!!.typeface=getwhitneybook(homeActivity)
+        tv_startcheck!!.typeface=getwhitneybook(homeActivity)
+        tv_docmangment!!.typeface=getwhitneybook(homeActivity)
+        tv_incidentreport!!.typeface=getwhitneybook(homeActivity)
+        tv_adhofault!!.typeface=getwhitneybook(homeActivity)
+       // tvemail!!.typeface=getwhitneybook(homeActivity)
 
     }
 
@@ -57,7 +60,7 @@ class HomeViewBind:DeviceResolution {
         img_menu=view.findViewById(R.id.img_menu)
         tv_header_text=view.findViewById(R.id.tv_header_text)
         cirecularimageview=view.findViewById(R.id.profile_image)
-     //   tv_user_type=view.findViewById(R.id.tv_user_type)
+        tv_companyname=view.findViewById(R.id.tv_companyname)
         tv_user_name=view.findViewById(R.id.tv_user_name)
         tv_user_email=view.findViewById(R.id.tv_user_email)
         rec_sidemenu=view.findViewById(R.id.rec_sidemenu)
@@ -76,5 +79,6 @@ class HomeViewBind:DeviceResolution {
         ll_adhocfault=view.findViewById(R.id.ll_adhocfault)
         drawer=view.findViewById(R.id.drawer)
         mainView=view.findViewById(R.id.mainView)
+      //  tvemail=view.findViewById(R.id.tvemail)
     }
 }

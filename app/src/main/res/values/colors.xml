@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#aaaaaa</color>
+    <color name="white">#fff</color>
+
+    <color name="login_bg_header">#032c71</color>
+    <!--  <color name="login_bg">#E8EFF5</color>-->
+    <color name="login_bg">#eaf0f3</color>
+
+
+    <color name="black">#000</color>
+    <color name="homehearbg">#042376</color>
+    <color name="drawercolor">#03142E</color>
+    <color name="drawer_top_header">#00183D</color>
+    <color name="header_text_color">#a9dfbf </color>
+    <color name="menu_text_color">#a096ef</color>
+    <color name="body_text_color">#41579f</color>
+
+    <color name="rectangle_box_color">#FB0101</color>
+    <color name="rectangle_stoke_color">#E6555A</color>
+    <color name="grey">#585755</color>
+    <color name="bottom_header_color">#001133</color>
+    <color name="red_button_color">#FE0100</color>
+    <color name="blue_button_color">#062373</color>
+    <color name="seek_color1">#9A9A9A</color>
+    <color name="seek_color_less_30">#FF0000</color>
+    <color name="seek_color_less_60">#FFA100</color>
+    <color name="seek_color_less_100">#00B800</color>
+    <color name="item_sell_1">#e8e8e8</color>
+    <color name="item_text_bg">#aaaaaa</color>
+    <color name="tab_indicator_color">#eb8139</color>
+    <color name="tabtext_color">#2d66bd</color>
+    <color name="text_color_check">#505050</color>
+    <color name="tab_bubble_color">#042f66</color>
+    <color name="completed_color">#ec863a</color>
+    <color name="chkdetails_other_btn_color">#FB161F</color>
+    <color name="chkdetails_other_fail_btn_color">#FF9800</color>
+    <color name="chkdetails_other_pass_btn_color">#00B200</color>
+    <color name="dialog_grey_color">#aaaaaa</color>
+    <color name="imageviewbg">#b7cce5</color>
+    <color name="adobe_color">#CEC389</color>
+    <color name="bottom_bg_newtask">#031425</color>
+    <color name="text_color_newtask">#7a7a7a</color>
+    <color name="bg_newtask">#eaf0f3</color>
+    <color name="lightgrey">#ebeaeb</color>
+    <color name="text_color">#c6c6c6</color>
+    <color name="textcolordoc">#7d7d7d</color>
+    <color name="textcolorlogin">#c9c9c9</color>
+    <color name="body_mapselectcolor">#63cdf5</color>
+    <color name="body_maptextcolor">#8f9395</color>
+    <color name="blue_color">#032c71</color>
+    <color name="signingrey">#555555</color>
+    <color name="text_hint_color">#9A9A9A</color>
+    <color name="transparept_grey">#aaaaaa</color>
+    <color name="intracheckcolor">#adc0de</color>
+    <color name="menu_sepertor_color">#362f99</color>
+    <color name="imageview_tintcolor">#21ACFD</color>
+</resources>

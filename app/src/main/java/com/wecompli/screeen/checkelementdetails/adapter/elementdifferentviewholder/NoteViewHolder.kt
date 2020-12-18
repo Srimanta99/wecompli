@@ -17,10 +17,10 @@ class NoteViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     val btn_note: Button =itemView.findViewById(R.id.btn_note)
     val ll_bgnote: LinearLayout =itemView.findViewById(R.id.ll_bgnote)
     fun Bindview(elementdetailsrow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int) {
-        if (position%2==0)
+      /*  if (position%2==0)
             ll_bgnote.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
         else
-            ll_bgnote.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
+            ll_bgnote.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))*/
 
         val deviceResolution= DeviceResolution(checkElementDetailsActivity)
         tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)

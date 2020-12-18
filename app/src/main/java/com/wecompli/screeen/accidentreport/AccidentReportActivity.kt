@@ -255,7 +255,7 @@ class AccidentReportActivity :AppCompatActivity(){
             if (data != null) {
                 val body = data.getStringExtra("body")
                 if (!body.equals(""))
-                accidentReportViewBind!!.tv_bodymaptext!!.text = body.substring(1, body.length)
+                accidentReportViewBind!!.tv_bodymaptext!!.text = body!!.substring(1, body!!.length)
             }
         }
         if (resultCode == Activity.RESULT_OK) {

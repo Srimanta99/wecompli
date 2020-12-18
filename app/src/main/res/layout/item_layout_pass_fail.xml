@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_light_gray_rounded_corner"
+    android:layout_marginBottom="@dimen/_7sdp"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+   <TextView
+       android:id="@+id/tv_checname"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/_7sdp"
+       android:layout_marginRight="@dimen/_7sdp"
+       android:textColor="#51688e"
+       app:layout_constraintLeft_toLeftOf="parent"
+       android:gravity="left"
+       android:textSize="@dimen/_13sdp"
+       android:padding="@dimen/_5sdp"></TextView>
+    <TextView
+        android:id="@+id/tv_checkdescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_7sdp"
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_11sdp"
+        android:gravity="left"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_28sdp"
+        android:background="@drawable/rectangular_shape_round_rounded_green"
+        android:text="@string/pass"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"></Button>
+
+    <Button
+        android:id="@+id/btn_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_28sdp"
+        android:text="@string/fail"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:padding="@dimen/_3sdp"
+
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+
+        android:background="@drawable/rectangular_shape_rounded_corner_other"/>
+        <Button
+            android:id="@+id/btn_minorfail"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:text="@string/miner_fail"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:padding="@dimen/_3sdp"
+
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_7sdp"
+
+            android:background="@drawable/rectangular_shape_round_rounded_yellow"/>
+
+
+    </LinearLayout>
+</LinearLayout>

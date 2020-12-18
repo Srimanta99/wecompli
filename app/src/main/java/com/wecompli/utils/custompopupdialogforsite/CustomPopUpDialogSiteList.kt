@@ -20,10 +20,7 @@ import com.wecompli.utils.sheardpreference.AppSheardPreference
 import com.wecompli.utils.sheardpreference.PreferenceConstent
 
 
-class CustomPopUpDialogSiteList(
-    context: HomeActivity?,
-    val startCheckFragmentOnClick: StartCheckFragmentOnClick,
-   val siteList: List<SiteList>?
+class CustomPopUpDialogSiteList(context: HomeActivity?, val startCheckFragmentOnClick: StartCheckFragmentOnClick, val siteList: List<SiteList>?
 ) : Dialog(context!!) {
 
      var tv_dialogtitle: TextView ?= null

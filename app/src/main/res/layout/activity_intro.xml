@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_20sdp">
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_5sdp"
+        app:centered="true"
+        app:fillColor="@color/grey"
+        app:pageColor="@color/seek_color1"
+        app:snap="false">
+
+    </com.viewpagerindicator.CirclePageIndicator>
+
+
+<Button
+    android:id="@+id/btn_skip"
+    android:layout_width="@dimen/_55sdp"
+    android:layout_height="@dimen/_55sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_margin="@dimen/_20sdp"
+    android:background="@drawable/circle"
+    android:text="@string/skip"
+    android:textColor="@color/white"
+    android:textSize="@dimen/_15sdp"></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

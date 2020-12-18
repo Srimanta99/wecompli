@@ -27,9 +27,9 @@ class NotiFyWhoAdapter(
     }
 
     override fun onBindViewHolder(holder: notifyview, position: Int) {
-        if (position % 2 == 0) {
+       /* if (position % 2 == 0) {
             holder.rr_notifybg.setBackgroundColor(notifyWhoActivity!!.getResources().getColor(R.color.item_sell_1))
-        }
+        }*/
         holder.tv_notify_name!!.setText(emillist.get(position).name)
        holder.tv_notify_email.setText(emillist.get(position).email)
         holder.chk_notify.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->

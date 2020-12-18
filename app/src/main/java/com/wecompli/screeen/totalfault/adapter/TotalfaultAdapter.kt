@@ -1,31 +1,22 @@
 package com.wecompli.screeen.totalfault.adapter
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rts.commonutils_2_0.deviceinfo.DeviceResolution
 import com.wecompli.R
 import com.wecompli.screeen.totalfault.TotalFaultActivity
 import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.wecompli.apiresponsemodel.faultapi.CheckRow
-import com.wecompli.utils.customviews.CustomTypefaceSpan
+import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
-
-
 
 
 class TotalfaultAdapter(
@@ -96,6 +87,8 @@ class TotalfaultAdapter(
         /*  val styledString = SpannableString("myLogin logout")
           styledString.setSpan(StyleSpan(deviceResolution!!.getgothmbold(totalFaultActivity)), 0, 7, 0)
           styledString.setSpan(StyleSpan(Typeface.ITALIC), 8, 14, 0)*/
+
+
         if (falultrow.get(position).categoryName.isNullOrEmpty()) {
             holder.rl_topheader_section.background = totalFaultActivity.getDrawable(R.drawable.rectangular_yellow_shape_top_rounded_corner)
             holder.tvfaultdetails.setText(remarks)
@@ -103,9 +96,10 @@ class TotalfaultAdapter(
             holder.tv_remarks.visibility=View.INVISIBLE
 
         } else {
-            holder.rl_topheader_section.background = totalFaultActivity.getDrawable(R.drawable.rectangular_grey_shape_top_rounded_corner)
+            holder.rl_topheader_section.background = totalFaultActivity.getDrawable(R.drawable.rectangle_gray_top_two_rounded_corner)
             holder.tvfaultdetails.visibility=View.VISIBLE
         }
+
         if(falultrow.get(position).faultFiles!!.size>0){
             for (i in 0 until falultrow.get(position).faultFiles!!.size){
                 if(i==0){
@@ -203,8 +197,11 @@ class TotalfaultAdapter(
         holder.img_fault3.setImageDrawable(RBD1)
         holder.img_fault4.setImageDrawable(RBD1)
 */
+        holder.imgfaultdelete.setOnClickListener {
+            Alert.showdeletefaultAlert(totalFaultActivity!! ,"Do you want to close this fault?",falultrow.get(position).id);
+        }
 
-        holder.llmainfaultitem.setOnClickListener {
+        holder.ll_bodytext.setOnClickListener {
             onItemClickInterface.OnItemClick(position)
         }
 
@@ -212,8 +209,8 @@ class TotalfaultAdapter(
 
     class  ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var rl_topheader_section=itemView.findViewById<RelativeLayout>(R.id.rl_topheader_section)
-    var tv_faultname=itemView.findViewById<TextView>(R.id.tv_faultname)
-    var imgfaulttypeimagr=itemView.findViewById<ImageView>(R.id.imgfaulttypeimagr)
+        var tv_faultname=itemView.findViewById<TextView>(R.id.tv_faultname)
+        var imgfaulttypeimagr=itemView.findViewById<ImageView>(R.id.imgfaulttypeimagr)
         var tvfaultdetails=itemView.findViewById<TextView>(R.id.tvfaultdetails)
         var tv_remarks=itemView.findViewById<TextView>(R.id.tv_remarks)
         var tv_status=itemView.findViewById<TextView>(R.id.tv_status)
@@ -224,6 +221,12 @@ class TotalfaultAdapter(
         var img_fault3=itemView.findViewById<ImageView>(R.id.img_fault3)
         var img_fault4=itemView.findViewById<ImageView>(R.id.img_fault4)
         var llmainfaultitem=itemView.findViewById<LinearLayout>(R.id.llmainfaultitem)
+        var ll_bodytext=itemView.findViewById<LinearLayout>(R.id.ll_bodytext)
+        val imgfaultdelete=itemView.findViewById<ImageView>(R.id.imgfaultdelete)
 
     }
+
+
+
+
 }

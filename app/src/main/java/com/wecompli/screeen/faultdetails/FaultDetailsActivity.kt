@@ -47,8 +47,8 @@ class FaultDetailsActivity:AppCompatActivity() {
         faulrDetailsOnClick= FaulrDetailsOnClick(this,faultDeatilsViewBind!!)
         val intent=intent
         faultid= intent.getStringExtra(PreferenceConstent.faultid)
-        sideid=intent.getStringExtra(PreferenceConstent.site_id)
-        FaultType=intent.getStringExtra(PreferenceConstent.FaultType)
+        sideid= intent!!.getStringExtra(PreferenceConstent.site_id)!!
+        FaultType= intent!!.getStringExtra(PreferenceConstent.FaultType)!!
         if (FaultType.equals("normal"))
               callApiforfaultdetails()
         else  if (FaultType.equals("adhoc"))

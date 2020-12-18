@@ -47,8 +47,7 @@ class StartCheckFragmentOnClick: View.OnClickListener{
     constructor(
         activity: HomeActivity,
         fragmentViewBind: StartCheckFragmentViewBind,
-        startCheckFragment: StartCheckFragment
-    ){
+        startCheckFragment: StartCheckFragment){
         this.activity=activity
         this.fragmentViewBind=fragmentViewBind
         this.startCheckFragment=startCheckFragment

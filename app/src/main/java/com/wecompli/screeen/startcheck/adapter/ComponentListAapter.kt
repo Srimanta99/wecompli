@@ -39,7 +39,7 @@ class ComponentListAapter(
         var deviceResolution=DeviceResolution(activity)
         var tv_component_name:TextView=itemView.findViewById(R.id.tv_component_name)
         init {
-            tv_component_name.typeface=deviceResolution.getbebas(activity)
+            tv_component_name.typeface=deviceResolution.getwhitneybook(activity)
         }
 
     }

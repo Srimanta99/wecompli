@@ -20,10 +20,10 @@ class YesNoViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     val llbgyesno: LinearLayout =itemView.findViewById(R.id.ll_bgyesno)
     fun Bindview(
         elementDetailsRow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int ) {
-        if (position%2==0)
+       /* if (position%2==0)
             llbgyesno.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
         else
-            llbgyesno.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
+            llbgyesno.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))*/
 
         val deviceResolution=DeviceResolution(checkElementDetailsActivity)
         tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)

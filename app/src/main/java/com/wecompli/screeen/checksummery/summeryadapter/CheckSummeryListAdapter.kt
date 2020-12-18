@@ -33,11 +33,11 @@ class CheckSummeryListAdapter(
 
     override fun onBindViewHolder(holder: SummeryListView, position: Int) {
         var checked_percentage: Int=0
-        if (position % 2 == 0)
+       /* if (position % 2 == 0)
             holder.ll_bg_summery_list.setBackgroundColor(checkSummeryActivity.getResources().getColor(R.color.item_sell_1))
         else
             holder.ll_bg_summery_list.setBackgroundColor(checkSummeryActivity.getResources().getColor(R.color.white))
-
+*/
 
         if (checkSummeryFragment.sessionname!!.contentEquals("Intra Day Check")){
             checked_percentage= ((listvalue!!.get(position).checksCount.toInt() * 100) / listvalue!!.get(position).totalChecksCount.toInt())

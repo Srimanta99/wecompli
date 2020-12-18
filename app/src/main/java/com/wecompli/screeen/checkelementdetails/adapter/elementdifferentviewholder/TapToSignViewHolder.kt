@@ -17,10 +17,10 @@ class TapToSignViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     val btn_taptosign: Button =itemView.findViewById(R.id.btn_taptosign)
     val ll_bgtaptosign: LinearLayout =itemView.findViewById(R.id.ll_bgtaptosign)
     fun Bindview(elementdetailsrow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int) {
-        if (position%2==0)
+        /*if (position%2==0)
             ll_bgtaptosign.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
         else
-            ll_bgtaptosign.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
+            ll_bgtaptosign.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))*/
 
         val deviceResolution= DeviceResolution(checkElementDetailsActivity)
         tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)

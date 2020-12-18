@@ -1,0 +1,542 @@
+<resources>
+    <string name="app_name">Wecompil</string>
+    <string name="rember_me">Recuérdame</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="forgotpassword">Se te olvidó tu contraseña?</string>
+    <string name="resetpassword">RESTABLECIMIENTO DE CONTRASEÑA</string>
+    <string name="forgot_password">SE TE OLVIDÓ TU CONTRASEÑA</string>
+    <string name="didypurememberyourpassword">¿Recuerdas tu contraseña? INICIAR SESIÓN  </string>
+    <string name="startcheck">INICIAR CHEQUES</string>
+    <string name="no_record_found">ningún record fue encontrado</string>
+
+    //language
+    <string name="select_language">Idioma</string>
+    <string name="english">English</string>
+    <string name="english_code">en</string>
+    <string name="german">German</string>
+    <string name="german_code">de</string>
+    <string name="dutch">Dutch</string>
+    <string name="dutch_code">nl</string>
+    <string name="spnish">Español</string>
+    <string name="spanish_code">es</string>
+
+    //home
+    <string name="dashboard">TABLERO</string>
+    <string name="servicing">SERVICIO</string>
+    <string name="start_chk">INICIAR CHEQUES</string>
+    <string name="incident_report">REPORTE DE INCIDENTE</string>
+    <string name="other">OTROS</string>
+    <string name="repair_menu">REPARAR</string>
+    <string name="logout">CERRAR SESIÓN</string>
+    <string name="audit">AUDITORÍA</string>
+    <string name="audit_inspection">INSPECCION DE AUDITORIA</string>
+    <string name="doc_manag">DOCUMENTOS</string>
+    <string name="contact">CONTACTOS</string>
+    <string name="super_admin">SUPER ADMINISTRADOR</string>
+    <string name="company_admin">ADMINISTRADOR DE LA EMPRESA</string>
+    <string name="nornal_user">USUARIO NORMAL</string>
+    <string name="new_version_avalible">Una nueva actualización está disponible</string>
+    <string name="update">Actualizar</string>
+    <string name="sureto_logout">¿Estás seguro de cerrar sesión?</string>
+    <string name="underdevelopment">En desarrollo.</string>
+    <string name="permessionnecessay">Permiso necesario</string>
+    <string name="externalstoragepermession">El permiso de almacenamiento externo es necesario</string>
+
+
+    //dashboard
+    <string name="daily">DIARIO</string>
+    <string name="weekly">SEMANAL</string>
+    <string name="monthly">MENSUAL</string>
+    <string name="quaterly">TRIMESTRAL</string>
+    <string name="halfyearly">MEDIO AÑO</string>
+    <string name="yearly">ANUAL</string>
+
+    //audit
+    <string name="weekly_audit">AUDITORIA SEMANAL</string>
+    <string name="monthly_audit">AUDITORIA MENSUAL</string>
+
+
+    //check strings
+    <string name="acidentreport">REPORTE DE ACCIDENTE</string>
+    <string name="equipmentincedent">INCIDENTE DE EQUIPO</string>
+    <string name="buildingincedent">INCIDENTE DE EDIFICIO</string>
+    <string name="customerreport">CLIENTE / INCIDENTE DE MATERIA</string>
+    <string name="equipmentincedentform">FORMULARIO DE INCIDENTE DE EQUIPO</string>
+    <string name="buildingincedentform">FORMULARIO DE INCIDENTE DE EDIFICIO</string>
+    <string name="customerreportform">FORMULARIO DE INCIDENTE DE CLIENTE / MATERIAL</string>
+
+    //accident report form
+    <string name="accident_report_form">FORMULARIO DE INFORME DE ACCIDENTE</string>
+    <string name="testing_account">Cuenta de prueba</string>
+    <string name="servarity_level">NIVEL DE SEVERIDAD</string>
+    <string name="enter_injured_person_name">Por favor, introduzca el nombre de la persona lesionada.</string>
+    <string name="enter_injured_person_phone">Por favor, introduzca el número de teléfono de la persona lesionada.</string>
+    <string name="check_accident_report">Por favor, verifique el informe del accidente.</string>
+
+    //front body text
+    <string name="forehead">Frente</string>
+    <string name="jaw">Mandíbula / TWJ</string>
+    <string name="tooth">Diente</string>
+    <string name="chest">Pecho</string>
+    <string name="rightelow">Codo derecho</string>
+    <string name="leftbelow">Codo izquierdo</string>
+    <string name="adbomen">Abdomen</string>
+    <string name="rightwrist">Muñeca derecha</string>
+    <string name="leftwrist">Muñeca izquierda</string>
+    <string name="hip">Cadera</string>
+    <string name="fingure">Fingura</string>
+    <string name="right_thing">Cosa correcta</string>
+    <string name="left_thing">Cosas dejadas</string>
+    <string name="right_knee">Rodilla derecha</string>
+    <string name="left_knee">Rodilla izquierda</string>
+
+    <string name="right_shin">Shin derecho</string>
+    <string name="left_shin">Shin izquierdo</string>
+    <string name="right_foot">Pie derecho</string>
+    <string name="left_foot">Pie izquierdo</string>
+    <string name="conti">CONTINUAR</string>
+
+
+    //back body string
+
+    <string name="left_ear">Oreja izquierda</string>
+    <string name="Right_ear">Oreja derecha</string>
+    <string name="nose">Nariz</string>
+    <string name="chin">Barbilla</string>
+    <string name="left_shoulder">Hombro izquierdo</string>
+    <string name="Right_shoulder">Hombro derecho</string>
+    <string name="upper_back">Superior de la espalda</string>
+    <string name="lower_back">Espalda baja</string>
+    <string name="left_leg">Pierna izquierda</string>
+    <string name="right_leg">Pierna derecha</string>
+    <string name="left_calf">Pantorrilla izquierda</string>
+    <string name="right_calf">Pantorrilla derecha</string>
+    <string name="left_ankle">Tobillo izquierdo</string>
+    <string name="right_ankle">Tobillo derecho</string>
+    <string name="left_toe">Dedo del pie izquierdo</string>
+    <string name="right_toe">Dedo del pie derecho</string>
+
+    <string name="wrongmessage">Algo salió mal. Por favor intente mas tarde.</string>
+
+    //live fault
+    <string name="live_fault">LISTA DE FALLAS EN VIVO</string>
+    <string name="fault_action_list">LISTA DE ACCIONES DE FALLAS</string>
+    <string name="ad_hoc_fault">+ FALLO AD HOC</string>
+
+    //fault action list
+
+    <string name="fault_action">LISTA DE ACCIONES DE FALLAS</string>
+    <string name="total_faults">FALTAS TOTALES</string>
+
+    //servicing
+    <string name="press_scan">* presione para escanear o seleccionar verificación de fallas</string>
+    <string name="time_spent">Tiempo gastado</string>
+    <string name="labour_charge"> Cargo laboral: £</string>
+    <string name="Part_cost"> Costo de parte: £</string>
+    <string name="total_cost"> Costo total: £ </string>
+    <string name="name_of_enginner">Nombre del ingeniero</string>
+    <string name="company_name">Nombre de empresa</string>
+    <string name="manager_name">Nombre del gerente</string>
+    <string name="date">Fecha</string>
+    <string name="hour">Hora</string>
+    <string name="min">Min</string>
+    <string name="engineer_signature">Firma del ingeniero aquí</string>
+    <string name="manager_signature">Firma del gerente aquí</string>
+    <string name="qrcodescan">QRCode Scan</string>
+    <string name="selectfaultchk">Seleccionar verificación de fallas</string>
+
+    //Add hoc fault
+    <string name="add_hoc_fault">AGREGAR FALLA AD HOC</string>
+    <string name="serverty_levels">SEVERIDAD \ n NIVEL</string>
+    <string name="level_row"> BAJO </string>
+    <string name="select_image">Haga clic aquí para \ n agregar imagen</string>
+
+    //contact
+    <string name="vistor_conductor">VISITA Y FORMULARIO DE CONDUCTOR</string>
+    <string name="responsible">FORMULARIO DE PERSONA RESPONSABLE</string>
+    <string name="emergencycontact">FORMULARIO DE CONTACTO DE EMERGENCIA</string>
+
+    //indicadance report
+    <string name="notethis">Tenga en cuenta que este formulario no sustituye el registro legal de accidentes Bi 510 y debe completarse además •
+completado además.
+</string>
+    <string name="iconstent">Doy mi consentimiento para compartir la información en este informe de accidente con terceros, incluida la compañía de seguros.</string>
+    <string name="tocomply">Para cumplir con la Ley de Protección de Datos de 1998 CDPA), los datos personales deben mantenerse confidenciales. Cuando se completen, estos formularios deben almacenarse de forma segura.</string>
+    <string name="satement1">DECLARACIÓN POR TESTIGO 1</string>
+    <string name="satement2">DECLARACIÓN POR TESTIGO 2</string>
+    <string name="anyapperts">Cualquier aparato o equipo involucrado debe ser retenido para inspección. Vea al dorso la declaración firmada</string>
+    <string name="wentduty">SI s (él) cumplió su deber a qué hora y por cuánto tiempo?</string>
+    <string name="iweconfirm">Yo / nosotros confirmamos. que, hasta donde yo sé / somos conscientes, los detalles anteriores, incluida la descripción del accidente, son verdaderos y completos. </string>
+    <string name="continuetowork">si después de la ocurrencia, si estaba de servicio, ¿siguió trabajando o se fue de servicio?</string>
+    <string name="off_duty_injured_time">¿Estaba s (él) en servicio o fuera de servicio en ese momento?</string>
+    <string name="emp_details">Si la persona lesionada era un empleado, esta sección debe ser completada por el Gerente de empleados o el empleado Senior</string>
+    <string name="full_desc_injuredperson">Descripción completa de cualquier lesión sufrida y tratamiento dado</string>
+    <string name="full_desc_accident">Descripción completa de las circunstancias del accidente, \ n incluyendo una descripción de un aparato de equipo involucrado    </string>
+    <string name="servertylevel">NIVEL DE SERVICIO </string>
+    <string name="backbody">VISTA TRASERA</string>
+    <string name="frontbody">VISTA FRONTAL</string>
+    <string name="clickher">Haga clic aquí para ver el mapa corporal</string>
+    <string name="submit">ENVIAR</string>
+    <string name="notifywho">NOTIFICAR A QUIÉN</string>
+    <string name="Selectcompany">Seleccione empresa</string>
+    <string name="selectsite">Seleccionar sitio</string>
+    <string name="major">    MAYOR</string>
+    <string name="minor">     MENOR</string>
+    <string name="detailsoforganization">DETALLES DE ORGANIZACIÓN</string>
+    <string name="nameoforganization">Nombre de la organización</string>
+    <string name="addressoforganization">Dirección de la organización</string>
+    <string name="postcode"> Código postal</string>
+    <string name="telephone">Teléfono</string>
+    <string name="detailsofpersoninjured">DETALLES DE LA PERSONA LESIONADA</string>
+    <string name="fullnamepersoninjured">Nombre completo de la persona lesionada</string>
+    <string name="personhomeaddress">Domicilio de la persona</string>
+    <string name="dateofbirth"> Fecha de nacimiento</string>
+    <string name="detailsofemployeecompleteform">DETALLES DEL EMPLEADO QUE COMPLETA EL FORMULARIO</string>
+    <string name="tickappropritebox">Marque la casilla correspondiente</string>
+    <string name="detailsofother"> Detalles de otros</string>
+    <string name="descriprionofaccident"> DESCRIPCION DEL ACCIDENTE</string>
+    <string name="selectaccidentlocation">Seleccionar lugar del accidente</string>
+    <string name="dateofoccurence">Fecha de ocurrencia</string>
+    <string name="timeofoccurence">Tiempo de ocurrencia</string>
+    <string name="takephatoorvideo">TOMA FATO </string>
+    <string name="employmentdetails">DETALLES DE EMPLEO</string>
+    <string name="signofbehalf">Firmado (en nombre del Propietario / Empresa)</string>
+    <string name="patientname">Nombre del paciente</string>
+    <string name="postion">Posición</string>
+    <string name="statementdetails">detalles de la declaración</string>
+    <string name="signbywitness">Firmado por witeness</string>
+    <string name="addressofwitness">Dirección de Witeness</string>
+    <string name="pairntnamecompletedby">Nombre impreso (formulario completado por)</string>
+    <string name="signinjuredperson">Firmar (Persona lesionada)</string>
+    <string name="prientinjuredperson">Nombre en letra de molde (persona lesionada)</string>
+    <string name="employee">  Empleado</string>
+    <string name="customer">Cliente</string>
+    <string name="visitor">  Visitante</string>
+    <string name="others">Otros (indique los detalles a continuación)</string>
+
+    // Equpment Incident
+    <string name="serverty_level">NIVEL DE SERVICIO</string>
+    <string name="decsriptionofincident">DESCRIPCIÓN DEL INCIDENTE</string>
+    <string name="equpmentname">Nombre del equipo</string>
+    <string name="full_description_ofincident">Descripción completa del incidente.</string>
+    <string name="address">Dirección</string>
+    <string name="antinjary">Cualquier lesión:</string>
+    <string name="yes"> SÍ</string>
+    <string name="no">NO</string>
+    <string name="pass"> PASAR</string>
+    <string name="fail">FALLAR</string>
+    <string name="injuredpersonname">Nombre de la persona lesionada</string>
+    <string name="full_descriptionof_injuredsuffer">Descripción completa de las lesiones sufridas y el tratamiento brindado</string>
+    <string name="signform_completed_by">Firmar (formulario completado por)</string>
+    <string name="prientname_compleled">Nombre impreso (formulario completado por)</string>
+
+    //building incidence
+    <string name="descriptionofincidence">DESCRIPCIÓN DEL INCIDENTE</string>
+    <string name="fuul_desc_of_incidence">Descripción completa del incidente.</string>
+    <string name="full_desc_inju_suff_treatment">Descripción completa de las lesiones sufridas y el tratamiento brindado</string>
+
+    //customer
+    <string name="customerstaff">DETALLES DEL CLIENTE / PERSONAL</string>
+    <string name="customer_staff_name">Nombre del cliente / personal</string>
+    <string name="staeme_of_witness">DECLARACIÓN DE TESTIGO</string>
+    <string name="witness_statement">Declaración de un testigo</string>
+    <string name="prient_name">Nombre impreso</string>
+
+
+    <string name="select_accident_loc"> SELECCIONE LA UBICACIÓN DE ACCIDENTES</string>
+
+    //adhoc fault
+    <string name="faultname">Nombre de falla</string>
+    <string name="fault_description">Descripción de la falla</string>
+    <string name="low">BAJO</string>
+    <string name="medium">MEDIO</string>
+    <string name="high">ALTO</string>
+    <string name="adhoc_submit_sucessfull">Error ADhoc enviado correctamente.</string>
+    <string name="enter_adhoc_fault_name">Por favor, introduzca un nombre de falla.</string>
+    <string name="enter_adhoc_fault_description">Por favor, introduzca una descripción de la falla.</string>
+    <string name="select_serverty_level">Por favor seleccione un nivel de pobreza.</string>
+
+    //barcode details
+    <string name="generalbuilding">Edificio general</string>
+    <string name="task"> Tarea</string>
+    <string name="passwithminorfail">PASAR CON MENOR FALLO</string>
+    <string name="Pass">PASAR</string>
+
+
+
+    //checksummery
+    <string name="checksummery">VER RESUMEN</string>
+    <string name="total_fault">FALLA TOTAL </string>
+    <string name="totaltask">TAREA TOTAL  </string>
+    <string name="all_chk_submit">Todos los cheques se envían correctamente.</string>
+    <string name="bar_code">ESCANEAR CÓDIGO QR</string>
+    <string name="miner_fail">FALLA MENOR</string>
+    <string name="tap_to_sign">TOQUE PARA FIRMAR</string>
+    <string name="input_text">TEXTO DE ENTRADA</string>
+    <string name="phato">PHATO</string>
+    <string name="view_more">Ver más</string>
+
+
+    //completetasklist
+    <string name="completetasklist">LISTA DE TAREAS COMPLETA</string>
+
+    //edittask
+    <string name="task_name">Nombre de la tarea</string>
+    <string name="task_descrip">Descripción de la tarea</string>
+    <string name="task_addition_info">Tarea Información adicional</string>
+    <string name="task_assign_by">Tarea Asignar por</string>
+    <string name="task_assign_to">Tarea Asignar a</string>
+    <string name="task_date">Fecha de la tarea</string>
+
+    //emaillist
+    <string name="email_list">EMIL LIST</string>
+    <string name="done">HECHO</string>
+
+    //minorfail
+    <string name="edittask"> EDITAR TAREA</string>
+    <string name="faultmangment">GESTIÓN DE FALLOS</string>
+    <string name="aditioal_information">Información Adicional</string>
+
+    //forgotpass
+    <string name="forgotemail">Email</string>
+
+    //input text
+    <string name="inputnote">Nota de entrada</string>
+
+    //intro
+    <string name="skip">OMITIR</string>
+
+    //livetask
+    <string name="livetask"> LISTA DE TAREAS EN VIVO</string>
+    <string name="live_complete_task">LISTA DE TAREAS COMPLETADA</string>
+    <string name="add_task">AGREGAR TAREA</string>
+
+    //login
+    <string name="login_password">Contraseña</string>
+    <string name="login_email">Email</string>
+    <string name="version">versión</string>
+    <string name="permession_request">Solicitud de permiso</string>
+    <string name="password_blank">Por favor, ingrese contraseña</string>
+    <string name="email_blank">Por favor, introduzca la identificación de correo electrónico</string>
+    <string name="valid_credential">Por favor ingrese un correo electrónico y contraseña válidos.</string>
+    <string name="something_wrong">Algo mal. Intente nuevamente con un correo electrónico y contraseña válidos.</string>
+
+
+    //Add new task
+    <string name="add_new_task">AGREGAR NUEVA TAREA</string>
+    <string name="new_task_name">Ingrese el nombre de la tarea</string>
+    <string name="new_task_description">Descripción de la tarea</string>
+    <string name="new_task_addition_info">Información Adicional</string>
+    <string name="new_task_assign_to">Seleccionar tarea Asignar a</string>
+    <string name="new_task_assign_by">Seleccionar tarea asignar por</string>
+    <string name="new_task_due_date">Fecha de vencimiento de la tarea</string>
+
+    //notify email
+    <string name="notifyemail">NOTIFICAR CORREO ELECTRÓNICO</string>
+
+    //select site
+    <string name="select_site">Seleccionar sitio</string>
+    <string name="select_all">SELECCIONAR TODO</string>
+
+    //submit task
+    <string name="taskcompletion">La terminación de la tarea</string>
+    <string name="taskname">Nombre de la tarea</string>
+    <string name="description_of_work">Descripción del trabajo</string>
+    <string name="add_phato">AGREGAR FATO</string>
+    <string name="staffname">Nombre del personal</string>
+    <string name="signinhere">Firme aquí</string>
+
+    //sign task
+    <string name="completed_by">Completado por</string>
+    <string name="prients_name">Nombre </string>
+
+    //task details
+    <string name="task_date_and_time">TAREA FECHA Y HORA</string>
+    <string name="task_description">DESCRIPCIÓN DE LA TAREA</string>
+    <string name="taskdetails_assign_to">TAREA ASIGNAR A</string>
+    <string name="taskdetails_assibn_by">TAREA ASIGNADA POR</string>
+    <string name="complete_task">TAREA COMPLETA</string>
+    <string name="update_task">TAREA ACTUALIZADA </string>
+
+    //teamprature
+    <string name="input_tempa">Temperatura de entrada</string>
+    //
+    <string name="total_faulst"> FALLA TOTAL</string>
+
+    //update fault
+    <string name="update_fault">Falla de actualización</string>
+    <string name="select_fault_status">Seleccionar estado de falla</string>
+    <string name="select_status_date">Seleccionar fecha de estado</string>
+    <string name="status">Estado</string>
+    <string name="fault_staus_report">INFORME DE ESTADO DE FALLAS</string>
+
+    //
+    <string name="notify_schedule">SELECCIONE EL PROGRAMA DE NOTIFICACIÓN</string>
+    <string name="name">Nombre</string>
+
+    //checked element
+    <string name="minor_fail">FALLA MENOR</string>
+    <string name="teamperature">TEMPERATURA</string>
+
+    //check summery
+    <string name="start_begin">Seleccione Verificar para comenzar a escanear</string>
+
+    //complete task
+    <string name="thanks">¡Gracias! Todos los cheques completados para</string>
+    <string name="dashboards">TABLERO</string>
+
+    //toast
+    <string name="successfully">Actualizada con éxito. </string>
+
+    //dashboard summery
+    <string name="produces">Produce</string>
+    <string name="sstatus">ESTADO</string>
+
+    //date picker
+    <string name="set_date">Define la fecha</string>
+    <string name="set_time">Fijar tiempo</string>
+    <string name="set">conjunto</string>
+    <string name="cancel">Cancelar</string>
+
+    //fault list
+    <string name="ele_fault_list">Lista de fallas de elementos</string>
+
+    //task details with fault
+    <string name="date_and_time">TAREA FECHA Y HORA</string>
+    <string name="no_fault_image">No se encontró imagen de falla</string>
+    <string name="fault_status_report">INFORME DE ESTADO DE FALLAS</string>
+    <string name="selects_fault_status">Seleccionar estado de falla</string>
+    <string name="fix_fault">FIX FAULT</string>
+
+    //fault layout 3
+    <string name="serverty_lvels">Nivel de severidad : </string>
+    <string name="search">BUSCAR</string>
+    <string name="select_date">Seleccione fecha</string>
+
+    //vistior contact
+    <string name="list_form">FORMULARIO DE LISTA</string>
+    <string name="add_form">AGREGAR FORMULARIO</string>
+    <string name="in_time">In time</string>
+    <string name="outime">Fuera de tiempo</string>
+    <string name="company_names">Nombre de empresa</string>
+    <string name="visitor_contractor_name">Nombre del visitante o contratista</string>
+    <string name="sign_to_confirm">Regístrate para confirmar</string>
+    <string name="reson_forvisit">Razón de la visita</string>
+    <string name="details_serial_no">Si se fija el equipo, detalles no de serie</string>
+    <string name="issue">PROBLEMA</string>
+    <string name="returns">REGRESO</string>
+
+    //responsible person
+    <string name="select_resonsible_person">SELECCIONE TIPO DE PERSONA RESPONSABLE</string>
+    <string name="health_and_seafty_responsible">Responsable de salud y seguridad </string>
+    <string name="ig_lead">IG Lead</string>
+    <string name="fire_marshal">Guardianes de bomberos</string>
+    <string name="frist_aids_appint_person">Primeros auxilios / nombrar persona</string>
+    <string name="name1">nombre</string>
+
+    //select from
+
+    <string name="select_form">SELECCIONE FORMULARIO</string>
+    <string name="visitor_conductor_log">Formulario de registro de visitante y conductor</string>
+    <string name="responsible_person_form">Formulario de persona responsable</string>
+    <string name="emergency_contract">Formulario de contactos de emergencia</string>
+    <string name="start">COMIENZO</string>
+
+    //tap to sign
+    <string name="done1">HECHO</string>
+    <string name="sign_here">FIRMA AQUI</string>
+    <string name="cancel1">CANCELAR</string>
+    <string name="clear">CLARO</string>
+
+    <string name="doc1">Documento 1</string>
+
+    //work type
+    <string name="work_type">Seleccionar tipo de trabajo</string>
+    <string name="repair">Reparar</string>
+    <string name="service">Servicio</string>
+    <string name="others1">Otro</string>
+    <string name="permission_read_phone_state_rationale">Permiso de dispositivo IEMI</string>
+    <string name="permissions_not_granted_read_phone_state">Permession no otorga</string>
+
+    //checkeditem
+    <string name="chk_status">Estado:</string>
+    <string name="minor_fault">FALLA MENOR</string>
+    <string name="teamprature">Temperatura</string>
+    <string name="signoff">cerrar sesión</string>
+    <string name="names">Nombre :</string>
+    <string name="textinput">ENTRADA DE TEXTO</string>
+    <string name="test">Prueba :</string>
+    <string name="camera">CÁMARA</string>
+
+    <string name="loading">Cargando....</string>
+    <string name="nointerner_connection">Sin conexión a Internet. Por favor conecte a internet.</string>
+    <string name="select_image_mode">Elegir imagen de </string>
+    <string name="from_gallery">Seleccionar foto de la galería</string>
+    <string name="from_camera">Capture fotos de la cámara</string>
+    <string name="select_company_frist">Por favor seleccione la compañía primero.</string>
+    <string name="select_company_side">Por favor seleccione empresa y sitio.</string>
+    <string name="select_company">Por favor seleccione empresa</string>
+    <string name="select_site_">Por favor seleccione sitio</string>
+
+    <string name="select_site_hader">SELECCIONE SITIO</string>
+    <string name="select_company_hader">SELECCIONE EMPRESA</string>
+    <string name="search_">Buscar</string>
+    <string name="add_sucessfully">Agregado exitosamente</string>
+    <string name="emergency">Emergencia:</string>
+    <string name="contact_name">Nombre de contacto:</string>
+    <string name="address_">Dirección:</string>
+    <string name="choose_start_time">Elija hora de inicio:</string>
+    <string name="choose_end_time">Elija hora de finalización:</string>
+
+    //visitor
+    <string name="please_select_date">Por favor seleccione fecha</string>
+    <string name="please_select_start_time">Por favor seleccione hora de inicio</string>
+    <string name="please_select_out_time">Por favor seleccione tiempo</string>
+    <string name="please_enter_company_name">Por favor, introduzca el nombre de la empresa</string>
+    <string name="please_enter_comtracto_name">Por favor, introduzca el nombre del contratista</string>
+    <string name="please_enter_reason_for_visit">Por favor, introduzca el motivo de la visita.</string>
+    <string name="please_enter_serial_no">Por favor, introduzca el número de serie.</string>
+
+    <string name="start_date">Fecha de inicio</string>
+    <string name="end_date">Fecha final</string>
+    <string name="notifyme_about_exp">Notificarme sobre vencimiento</string>
+    <string name="notify_who">Notificar a quien</string>
+
+    <string name="select_phato_choose">Seleccione la acción</string>
+    <string name="select_from_gallery">Seleccionar foto de la galería</string>
+    <string name="capture_from_camera">Capture fotos de la cámara</string>
+
+    <string name="element_fault_repair">Reparación de fallas del elemento con éxito.</string>
+    <string name="wrong_respose">Algo mal. Intenta nuevamente más tarde.</string>
+
+    //doccument
+    <string name="enter_doc_name">Por favor, introduzca el nombre del documento.</string>
+    <string name="enter_start_date">Por favor seleccione la fecha de inicio</string>
+    <string name="enter_end_date">Por favor seleccione fecha de finalización</string>
+    <string name="notify_me_expairy">Por favor, elija Notificarme sobre la caducidad</string>
+
+    //add new task
+    <string name="taskadded">Tarea agregada exitosamente</string>
+    <string name="plzselectdate">Por favor seleccione fecha.</string>
+    <string name="assigntaskbysomeone">Asignar tarea por alguien</string>
+    <string name="assigntasktosomeone">Asigne tarea a alguien</string>
+    <string name="newtaskname">Por favor, introduzca el nombre de la tarea</string>
+
+    <string name="thanksforallchk">¡Gracias! Todos los cheques completados para</string>
+    <string name="totalfaulltsubmit">Total de fallas enviadas</string>
+    <string name="selectrepairdate">Por favor seleccione fecha de reparación.</string>
+    <string name="selectstatustype">Por favor seleccione el tipo de estado.</string>
+    <string name="pleaseeneteremail">Por favor ingrese su correo electrónico</string>
+    <string name="inputsomevalue">Por favor ingrese algún valor.</string>
+    <string name="pleaseenetrteamp">Por favor, introduzca la temperatura.</string>
+    <string name="dateoffaultsubmit">Fecha de falla presentada</string>
+    <string name="selectfault_Type">Seleccionar tipo de falla</string>
+    <string name="Date">Fecha: </string>
+    <string name="repair1">Reparar</string>
+    <string name="Other">Otro</string>
+    <string name="Service">Servicio</string>
+
+    <string name="enter_patient_name">Por favor ingrese el nombre del prient</string>
+    <string name="Details">Details</string>
+    <string name="remark">Remarks</string>
+</resources>

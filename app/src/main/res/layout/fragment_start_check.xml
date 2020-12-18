@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle_white_top_two_rounded_corner">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_selectCompany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Selectcompany"
+        android:textColor="#7c889d"
+        android:textSize="@dimen/_12sdp"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_17sdp"></TextView>
+    <TextView
+        android:id="@+id/tv_Selected_company"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_37sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+
+        android:paddingRight="@dimen/_8sdp"
+        android:hint="@string/Selectcompany"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_17sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="@color/login_bg_header"
+        android:textColorHint="@color/login_bg_header"
+        android:background="@drawable/rectangular_shape_rounded_corner_login"/>
+        <TextView
+            android:id="@+id/tvselectSite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selectsite"
+
+            android:textColor="#7c889d"
+            android:textSize="@dimen/_12sdp"
+
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"></TextView>
+
+    <TextView
+        android:id="@+id/tv_select_site"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_37sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_below="@+id/tv_Selected_company"
+        android:drawableRight="@drawable/down_arrow"
+        android:paddingRight="@dimen/_8sdp"
+        android:hint="@string/selectsite"
+        android:gravity="center_vertical"
+        android:textColor="@color/login_bg_header"
+        android:paddingLeft="@dimen/_17sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textColorHint="@color/login_bg_header"
+        android:background="@drawable/rectangular_shape_rounded_corner_login"/>
+
+        <TextView
+            android:id="@+id/tvSelectdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_date"
+            android:textColor="#7c889d"
+            android:textSize="@dimen/_12sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"></TextView>
+    <TextView
+        android:id="@+id/tv_check_date"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_37sdp"
+       android:layout_marginTop="@dimen/_3sdp"
+        android:layout_below="@+id/tv_select_site"
+        android:paddingRight="@dimen/_8sdp"
+        android:hint="@string/select_date"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_17sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textColorHint="@color/login_bg_header"
+        android:visibility="visible"
+        android:drawableRight="@drawable/calender"
+        android:textColor="@color/login_bg_header"
+        android:background="@drawable/rectangular_shape_rounded_corner_login"/>
+    <LinearLayout
+        android:id="@+id/ll_component"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_below="@+id/tv_check_date">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rev_componentlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

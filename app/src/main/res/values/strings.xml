@@ -1,0 +1,546 @@
+<resources>
+    <string name="app_name">Wecompli</string>
+    <string name="rember_me">Remember me</string>
+    <string name="login">LOGIN</string>
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="resetpassword">RESET PASSWORD</string>
+    <string name="forgot_password">FORGOT PASSWORD</string>
+    <string name="didypurememberyourpassword">Did you remember your password? LOGIN  </string>
+    <string name="startcheck">START CHECKS</string>
+    <string name="no_record_found">No Record Found</string>
+
+    //language
+    <string name="select_language">Language</string>
+    <string name="english">English</string>
+    <string name="english_code">en</string>
+    <string name="german">German</string>
+    <string name="german_code">de</string>
+    <string name="dutch">Dutch</string>
+    <string name="dutch_code">nl</string>
+    <string name="spnish">Spanish</string>
+    <string name="spanish_code">es</string>
+
+    //home
+    <string name="dashboard">DASHBOARD</string>
+    <string name="servicing">SERVICING</string>
+    <string name="start_chk">START CHECKS</string>
+    <string name="incident_report">INCIDENT REPORT</string>
+    <string name="other">OTHERS</string>
+    <string name="logout">LOGOUT</string>
+    <string name="audit">AUDIT</string>
+    <string name="repair_menu">REPAIR</string>
+    <string name="audit_inspection">AUDIT INSPECTION</string>
+    <string name="doc_manag">DOCUMENTS</string>
+    <string name="contact">CONTACTS</string>
+    <string name="super_admin">SUPER ADMIN</string>
+    <string name="company_admin">COMPANY ADMIN</string>
+    <string name="nornal_user">NORMAL USER</string>
+    <string name="new_version_avalible">A New Update is Available</string>
+    <string name="update">Update</string>
+    <string name="sureto_logout">Are you sure to Logout?</string>
+    <string name="underdevelopment">Under Development.</string>
+    <string name="permessionnecessay">Permission necessary</string>
+    <string name="externalstoragepermession">External storage permission is necessary</string>
+
+
+    //dashboard
+    <string name="daily">DAILY</string>
+    <string name="weekly">WEEKLY</string>
+    <string name="monthly">MONTHLY</string>
+    <string name="quaterly">QUATERLY</string>
+    <string name="halfyearly">HALF-YEARLY</string>
+    <string name="yearly">YEARLY</string>
+
+    //audit
+    <string name="weekly_audit">WEEKLY AUDIT</string>
+    <string name="monthly_audit">MONTHLY AUDIT</string>
+
+
+    //check strings
+    <string name="acidentreport">ACCIDENT REPORT</string>
+    <string name="equipmentincedent">EQUIPMENT INCIDENT</string>
+    <string name="buildingincedent">BUILDING INCIDENT</string>
+    <string name="customerreport">CUSTOMER/STUFF INCIDENT</string>
+    <string name="equipmentincedentform">EQUIPMENT INCIDENT FORM</string>
+    <string name="buildingincedentform">BUILDING INCIDENT FORM</string>
+    <string name="customerreportform">CUSTOMER/STUFF INCIDENT FORM</string>
+
+    //accident report form
+    <string name="accident_report_form">ACCIDENT REPORT FORM</string>
+    <string name="testing_account">Testing account</string>
+    <string name="servarity_level">SERVARITY LAVEL</string>
+    <string name="enter_injured_person_name">Please Enter injured person name.</string>
+    <string name="enter_injured_person_phone">Please Enter injured person telephone number.</string>
+    <string name="check_accident_report">Please Check accident report Check</string>
+
+    //front body text
+    <string name="forehead">Forehead</string>
+    <string name="jaw">Jaw/TWJ</string>
+    <string name="tooth">Tooth</string>
+    <string name="chest">Chest</string>
+    <string name="rightelow">Right Elbow</string>
+    <string name="leftbelow">Left Elbow</string>
+    <string name="adbomen">Adbomen</string>
+    <string name="rightwrist">Right Wrist</string>
+    <string name="leftwrist">Left Wrist</string>
+    <string name="hip">Hip</string>
+    <string name="fingure">Fingure</string>
+    <string name="right_thing">Right Thing</string>
+    <string name="left_thing">Left Things</string>
+    <string name="right_knee">Right Knee</string>
+    <string name="left_knee">Left Knee</string>
+
+    <string name="right_shin">Right Shin</string>
+    <string name="left_shin">Left Shin</string>
+    <string name="right_foot">Right Foot</string>
+    <string name="left_foot">Left Foot</string>
+    <string name="conti">CONTINUE</string>
+
+
+    //back body string
+
+    <string name="left_ear">Left Ear</string>
+    <string name="Right_ear">Right Ear</string>
+    <string name="nose">Nose</string>
+    <string name="chin">Chin</string>
+    <string name="left_shoulder">Left Shoulder</string>
+    <string name="Right_shoulder">Right Shoulder</string>
+    <string name="upper_back">Upper Back</string>
+    <string name="lower_back">Lower Back</string>
+    <string name="left_leg">Left Leg</string>
+    <string name="right_leg">Right Leg</string>
+    <string name="left_calf">Left Calf</string>
+    <string name="right_calf">Right Calf</string>
+    <string name="left_ankle">Left Ankle</string>
+    <string name="right_ankle">Right Ankle</string>
+    <string name="left_toe">Left Toe</string>
+    <string name="right_toe">Right Toe</string>
+
+    <string name="wrongmessage">Something Went Wrong. Please Try later.</string>
+
+    //live fault
+    <string name="live_fault">LIVE FAULT LIST</string>
+    <string name="fault_action_list">FAULT ACTION LIST</string>
+    <string name="ad_hoc_fault">+ AD HOC FAULT</string>
+
+    //fault action list
+
+    <string name="fault_action">FAULT ACTION LIST</string>
+    <string name="total_faults">TOTAL FAULTS </string>
+
+    //servicing
+    <string name="press_scan">* press to scan or select fault check</string>
+    <string name="time_spent">Time Spend</string>
+    <string name="labour_charge"> Labour Charge: £ </string>
+    <string name="Part_cost"> Part Cost: £ </string>
+    <string name="total_cost"> Total Cost: £ </string>
+    <string name="name_of_enginner">Name of Engineer</string>
+    <string name="company_name">Company name</string>
+    <string name="manager_name">Manager name</string>
+    <string name="date">Date</string>
+    <string name="hour">Hour</string>
+    <string name="min">Min</string>
+    <string name="engineer_signature">Engineer Signature Here</string>
+    <string name="manager_signature">Manager Signature Here</string>
+    <string name="qrcodescan">QRCode Scan</string>
+    <string name="selectfaultchk">Select Fault Check</string>
+
+    //Add hoc fault
+    <string name="add_hoc_fault">ADD AD HOC FAULT</string>
+    <string name="serverty_levels">SEVERITY \n LEVEL</string>
+    <string name="level_row"> LOW </string>
+    <string name="select_image">Click here for \n add image</string>
+
+    //contact
+    <string name="vistor_conductor">VISITOR AND CONDUCTOR FORM</string>
+    <string name="responsible">RESPONSIBLE PERSON FORM</string>
+    <string name="emergencycontact">EMERGENCY CONTACT FORM</string>
+
+    //indicadance report
+    <string name="notethis">Note  this form la not a substitute for the statutory accidentits  record Bi 510 and should be complete in addition •
+completed in addition.
+</string>
+    <string name="iconstent">I consent to sharing the information in this accident report with third parties, including insurance company .
+    </string>
+    <string name="tocomply">To comply with the Data Protection Act 1998 CDPA) personal details must be kept confidential, When completed these forms must be stored securely.</string>
+    <string name="satement1">STATEMENT BY WITNESS 1</string>
+    <string name="satement2">STATEMENT BY WITNESS 2</string>
+    <string name="anyapperts">Any aparatus or 2quipment involved must be retained for inspection. See overleaf for signed statement</string>
+    <string name="wentduty">IF s(he) went of duty at what time and for how long?</string>
+    <string name="iweconfirm">I/we confirm. that as far as I am/we are aware the above details including the description of the accident are true and complete.
+    </string>
+    <string name="continuetowork">if on duty did s(he) after the occurrence continue to work or go off duty?</string>
+    <string name="off_duty_injured_time">Was s(he) on or off duty at the time?</string>
+    <string name="emp_details">If injured person was an employee this section is to be completed by the employees Manager or Senior employee
+    </string>
+    <string name="full_desc_injuredperson">Full description of any inpries suffered and treatment given</string>
+    <string name="full_desc_accident">Full description of the accident circumstances,\n including a descripton of an  apparatus of equipment involved
+    </string>
+    <string name="servertylevel">SERVITY LEVEL </string>
+    <string name="backbody">BACK VIEW</string>
+    <string name="frontbody">FRONT VIEW</string>
+    <string name="clickher">Click here for body map</string>
+    <string name="submit">SUBMIT</string>
+    <string name="notifywho">NOTIFY WHO</string>
+    <string name="Selectcompany">Select Company</string>
+    <string name="selectsite">Select Site</string>
+    <string name="major">    MAJOR</string>
+    <string name="minor">     MINOR</string>
+    <string name="detailsoforganization">DETAILS OF ORGANIZATION</string>
+    <string name="nameoforganization"> Name of Organization</string>
+    <string name="addressoforganization">Address of Organization</string>
+    <string name="postcode"> Post Code</string>
+    <string name="telephone">Telephone</string>
+    <string name="detailsofpersoninjured">DETAILS OF PERSON INJURED</string>
+    <string name="fullnamepersoninjured">Full name of person injured</string>
+    <string name="personhomeaddress">Person home address</string>
+    <string name="dateofbirth"> Date of Birth</string>
+    <string name="detailsofemployeecompleteform">DETAILS OF EMPLOYEE COMPLETING THE FORM</string>
+    <string name="tickappropritebox">Tick approprite box</string>
+    <string name="detailsofother"> Details Of Others</string>
+    <string name="descriprionofaccident"> DESCRIPTION OF ACCIDENT</string>
+    <string name="selectaccidentlocation">Select accident location</string>
+    <string name="dateofoccurence">Date of occurence</string>
+    <string name="timeofoccurence">Time of occurence</string>
+    <string name="takephatoorvideo">TAKE PHATO </string>
+    <string name="employmentdetails">EMPLOYMENT DETAILS</string>
+    <string name="signofbehalf">Signed (on behalf of Owner/Company)</string>
+    <string name="patientname">Patient Name</string>
+    <string name="postion">Position</string>
+    <string name="statementdetails">statement details</string>
+    <string name="signbywitness">Signed by witness</string>
+    <string name="addressofwitness">Address of Witeness</string>
+    <string name="pairntnamecompletedby">Print name(Form completed by)</string>
+    <string name="signinjuredperson">Sign(Injured person)</string>
+    <string name="prientinjuredperson">Print name( injured person)</string>
+    <string name="employee">  Employee</string>
+    <string name="customer">Customer</string>
+    <string name="visitor">  Visitor</string>
+    <string name="others">Others  (Please give details below)</string>
+
+    // Equpment Incident
+    <string name="serverty_level">SERVITY LEVEL </string>
+    <string name="decsriptionofincident">DESCRIPTION OF INCIDENT</string>
+    <string name="equpmentname">Equipment name</string>
+    <string name="full_description_ofincident">Full description of the incident</string>
+    <string name="address">Address</string>
+    <string name="antinjary">Any Injuries:</string>
+    <string name="yes"> YES</string>
+    <string name="no">NO</string>
+    <string name="pass"> PASS</string>
+    <string name="fail">FAIL</string>
+    <string name="injuredpersonname">Injured Person Name</string>
+    <string name="full_descriptionof_injuredsuffer">Full description of injures suffered and treatment given</string>
+    <string name="signform_completed_by">Sign( Form completed by)</string>
+    <string name="prientname_compleled">Print Name( Form completed By)</string>
+
+    //building incidence
+    <string name="descriptionofincidence">DESCRIPTION OF INCIDENT</string>
+    <string name="fuul_desc_of_incidence">Full description of the incident</string>
+    <string name="full_desc_inju_suff_treatment">Full description of injures suffered and treatment given</string>
+
+    //customer
+    <string name="customerstaff">CUSTOMER/STAFF DETAILS</string>
+    <string name="customer_staff_name">Customer/Staff Name</string>
+    <string name="staeme_of_witness">STATEMENT OF WITNESS</string>
+    <string name="witness_statement">Witness Statement</string>
+    <string name="prient_name">Print Name</string>
+
+
+    <string name="select_accident_loc"> SELECT ACCCIDENTLOCATION</string>
+
+    //adhoc fault
+    <string name="faultname">Fault Name</string>
+    <string name="fault_description">Fault Description</string>
+    <string name="low">LOW</string>
+    <string name="medium">MEDIUM</string>
+    <string name="high">HIGH</string>
+    <string name="adhoc_submit_sucessfull">ADhoc Fault Submitted successfully.</string>
+    <string name="enter_adhoc_fault_name">Please Enter a Fault Name.</string>
+    <string name="enter_adhoc_fault_description">Please Enter a Fault Description.</string>
+    <string name="select_serverty_level">Please Select a Severty Lavel.</string>
+
+    //barcode details
+    <string name="generalbuilding">General building</string>
+    <string name="task"> Task</string>
+    <string name="passwithminorfail">PASS WITH MINOR FAULT</string>
+    <string name="Pass">PASS</string>
+
+
+
+    //checksummery
+    <string name="checksummery">CHECK SUMMARY</string>
+    <string name="total_fault">TOTAL FAULT  </string>
+    <string name="totaltask">TOTAL TASK  </string>
+    <string name="all_chk_submit">All check are submitted sucessfully.</string>
+    <string name="bar_code">SCAN QR CODE</string>
+    <string name="miner_fail">MINOR FAIL</string>
+    <string name="tap_to_sign">TAP TO SIGN</string>
+    <string name="input_text">INPUT TEXT</string>
+    <string name="phato">PHATO</string>
+    <string name="view_more">View More</string>
+
+
+    //completetasklist
+    <string name="completetasklist">COMPLETE TASK LIST</string>
+
+    //edittask
+    <string name="task_name">Task name</string>
+    <string name="task_descrip">Task Description</string>
+    <string name="task_addition_info">Task Additional Info</string>
+    <string name="task_assign_by">Task Assign By</string>
+    <string name="task_assign_to">Task Assign To</string>
+    <string name="task_date">Task date</string>
+
+    //emaillist
+    <string name="email_list">EMIL LIST</string>
+    <string name="done">DONE</string>
+
+    //minorfail
+    <string name="edittask"> EDIT TASK</string>
+    <string name="faultmangment">FAULT MANAGEMENT</string>
+    <string name="aditioal_information">Additional Information</string>
+
+    //forgotpass
+    <string name="forgotemail">Email</string>
+
+    //input text
+    <string name="inputnote">Input note</string>
+
+    //intro
+    <string name="skip">SKIP</string>
+
+    //livetask
+    <string name="livetask"> LIVE TASK LIST</string>
+    <string name="live_complete_task">COMPLETED TASK LIST</string>
+    <string name="add_task">ADD TASK</string>
+
+    //login
+    <string name="login_password">Password</string>
+    <string name="login_email">Email</string>
+    <string name="version">version</string>
+    <string name="permession_request">Permission Request</string>
+    <string name="password_blank">Please enter password</string>
+    <string name="email_blank">Please enter Email-id</string>
+    <string name="valid_credential">Please enter valid email and password.</string>
+    <string name="something_wrong">Something Wrong. Try again with valid Email and password.</string>
+
+
+    //Add new task
+    <string name="add_new_task">ADD NEW TASK</string>
+    <string name="new_task_name">Enter Task Name</string>
+    <string name="new_task_description">Task Description</string>
+    <string name="new_task_addition_info">Additional Information</string>
+    <string name="new_task_assign_to">Select Task Assign To</string>
+    <string name="new_task_assign_by">Select Task Assign By</string>
+    <string name="new_task_due_date">Task Due Date</string>
+
+    //notify email
+    <string name="notifyemail">NOTIFY EMAIL</string>
+
+    //select site
+    <string name="select_site">Select Site</string>
+    <string name="select_all">SELECT ALL</string>
+
+    //submit task
+    <string name="taskcompletion">Task Completion</string>
+    <string name="taskname">Task Name</string>
+    <string name="description_of_work">Description of Work</string>
+    <string name="add_phato">ADD PHATO</string>
+    <string name="staffname">Staff name</string>
+    <string name="signinhere">Sign In here</string>
+
+    //sign task
+    <string name="completed_by">Completed by</string>
+    <string name="prients_name"> name</string>
+
+    //task details
+    <string name="task_date_and_time">TASK DATE AND TIME</string>
+    <string name="task_description">TASK DESCRIPTION</string>
+    <string name="taskdetails_assign_to">TASK ASSIGN TO</string>
+    <string name="taskdetails_assibn_by">TASK ASSIGN BY</string>
+    <string name="complete_task">COMPLETE TASK</string>
+    <string name="update_task">UPDATE TASK </string>
+
+    //teamprature
+    <string name="input_tempa">Input temparature</string>
+    //
+    <string name="total_faulst"> TOTAL FAULT</string>
+
+    //update fault
+    <string name="update_fault"> Update Fault</string>
+    <string name="select_fault_status">Select Fault Status</string>
+    <string name="select_status_date">Select Status Date</string>
+    <string name="status">Status</string>
+    <string name="fault_staus_report">FAULT   STATUS   REPORT</string>
+
+    //
+    <string name="notify_schedule">SELECT NOTIFY SCHEDULE</string>
+    <string name="name">Name</string>
+
+    //checked element
+    <string name="minor_fail">MINOR FAIL</string>
+    <string name="teamperature">TEMPRATURE</string>
+
+    //check summery
+    <string name="start_begin">Select Check to Begin Scanning</string>
+
+    //complete task
+    <string name="thanks">thanks! All checks completed for</string>
+    <string name="dashboards">DASHBOARD</string>
+
+    //toast
+    <string name="successfully">Sucessfully Updated. </string>
+
+    //dashboard summery
+    <string name="produces">Produces</string>
+    <string name="sstatus">STATUS</string>
+
+    //date picker
+    <string name="set_date">Set date</string>
+    <string name="set_time">Set Time</string>
+    <string name="set">set</string>
+    <string name="cancel">Cancel</string>
+
+    //fault list
+    <string name="ele_fault_list">ELement Fault List</string>
+
+    //task details with fault
+    <string name="date_and_time">TASK DATE AND TIME</string>
+    <string name="no_fault_image">No Fault Image Found</string>
+    <string name="fault_status_report">FAULT   STATUS   REPORT</string>
+    <string name="selects_fault_status">Select Fault Status</string>
+    <string name="fix_fault">FIX FAULT</string>
+
+    //fault layout 3
+    <string name="serverty_lvels">Severty Level : </string>
+    <string name="search">SEARCH</string>
+    <string name="select_date">Select Date</string>
+
+    //vistior contact
+    <string name="list_form">LIST FORM</string>
+    <string name="add_form">ADD FORM</string>
+    <string name="in_time">In time</string>
+    <string name="outime">Out time</string>
+    <string name="company_names">Company name</string>
+    <string name="visitor_contractor_name">Visitor or Contractor name</string>
+    <string name="sign_to_confirm">Sign to confirm</string>
+    <string name="reson_forvisit">Reason for visit</string>
+    <string name="details_serial_no">If fixing equipment, details serial no</string>
+    <string name="issue">ISSUE</string>
+    <string name="returns">RETURN</string>
+
+    //responsible person
+    <string name="select_resonsible_person">SELECT RESPONSIBLE PERSON TYPE</string>
+    <string name="health_and_seafty_responsible">Health and safety responsible </string>
+    <string name="ig_lead">IG Lead</string>
+    <string name="fire_marshal">Fire marshal wardens</string>
+    <string name="frist_aids_appint_person">First aiders/appoint person</string>
+    <string name="name1">name</string>
+
+    //select from
+
+    <string name="select_form">SELECT FORM</string>
+    <string name="visitor_conductor_log">Visitor and Conductor Log Form</string>
+    <string name="responsible_person_form">Responsable Person Form</string>
+    <string name="emergency_contract">Emergency Contacts Form</string>
+    <string name="start">START</string>
+
+    //tap to sign
+    <string name="done1">DONE</string>
+    <string name="sign_here">SIGN HERE</string>
+    <string name="cancel1">CANCEL</string>
+    <string name="clear">CLEAR</string>
+
+    <string name="doc1">Document 1</string>
+
+    //work type
+    <string name="work_type">Select Work Type</string>
+    <string name="repair">Repair</string>
+    <string name="service">Service</string>
+    <string name="others1">Other</string>
+    <string name="permission_read_phone_state_rationale">Device IEMI permission</string>
+    <string name="permissions_not_granted_read_phone_state">Permession not grant</string>
+
+    //checkeditem
+    <string name="chk_status">Status :</string>
+    <string name="minor_fault">MINOR FAULT</string>
+    <string name="teamprature">Temperature</string>
+    <string name="signoff">signoff</string>
+    <string name="names">Name :</string>
+    <string name="textinput">TEXT INPUT</string>
+    <string name="test">Test :</string>
+    <string name="camera">CAMERA</string>
+
+    <string name="loading">Loading....</string>
+    <string name="nointerner_connection">No Internet Connection. Please connect Internet.</string>
+    <string name="select_image_mode">Choose Image from </string>
+    <string name="from_gallery">Select photo from gallery</string>
+    <string name="from_camera">Capture photo from camera</string>
+    <string name="select_company_frist">Please Select Company first.</string>
+    <string name="select_company_side">Please select company and site.</string>
+    <string name="select_company">Please Select Company</string>
+    <string name="select_site_">Please Select Site</string>
+
+    <string name="select_site_hader">SELECT SITE</string>
+    <string name="select_company_hader">SELECT COMPANY</string>
+    <string name="search_">Search</string>
+    <string name="add_sucessfully">Added successfully</string>
+    <string name="emergency">Emergency:</string>
+    <string name="contact_name">Contact Name:</string>
+    <string name="address_">Address:</string>
+    <string name="choose_start_time">Choose Start Time:</string>
+    <string name="choose_end_time">Choose End Time:</string>
+
+    //visitor
+    <string name="please_select_date">Please Select Date</string>
+    <string name="please_select_start_time">Please Select Start Time</string>
+    <string name="please_select_out_time">Please Select Out Time</string>
+    <string name="please_enter_company_name">Please Enter Company Name</string>
+    <string name="please_enter_comtracto_name">Please Enter Contractor Name</string>
+    <string name="please_enter_reason_for_visit">Please Enter Reason for visit.</string>
+    <string name="please_enter_serial_no">Please Enter Serial no.</string>
+
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="notifyme_about_exp">Notify me about expiry</string>
+    <string name="notify_who">Notify Who</string>
+
+    <string name="select_phato_choose">Select Action</string>
+    <string name="select_from_gallery">Select photo from gallery</string>
+    <string name="capture_from_camera">Capture photo from camera</string>
+
+    <string name="element_fault_repair">Element Fault Repair  Sucessfully.</string>
+    <string name="wrong_respose">Something Wrong. Try again later.</string>
+
+    //doccument
+    <string name="enter_doc_name">Please Enter Document name.</string>
+    <string name="enter_start_date">Please Select Start Date</string>
+    <string name="enter_end_date">Please Select End Date</string>
+    <string name="notify_me_expairy">Please Choose Notify me about expiry</string>
+
+    //add new task
+    <string name="taskadded">Task added sucessfully</string>
+    <string name="plzselectdate">Please Select Date.</string>
+    <string name="assigntaskbysomeone">Please Assign Task By Someone</string>
+    <string name="assigntasktosomeone">Please Assign Task To Someone</string>
+    <string name="newtaskname">Please enter Task name</string>
+
+    <string name="thanksforallchk">Thanks! All checks completed for</string>
+    <string name="totalfaulltsubmit">Total faults submitted</string>
+    <string name="selectrepairdate">Please select Repair date.</string>
+    <string name="selectstatustype">Please select status type.</string>
+    <string name="pleaseeneteremail">Please Enter email</string>
+    <string name="inputsomevalue">Please input some value.</string>
+    <string name="pleaseenetrteamp">Please Enter temperature.</string>
+    <string name="dateoffaultsubmit">Date of fault submitted</string>
+    <string name="selectfault_Type">Select Fault Type</string>
+    <string name="Date">Date: </string>
+    <string name="repair1">Repair</string>
+    <string name="Other">Other</string>
+    <string name="Service">Service</string>
+
+    <string name="enter_patient_name">Please enter patient name</string>
+    <string name="Details">Details</string>
+    <string name="remark">Remarks</string>
+</resources>

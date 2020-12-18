@@ -74,7 +74,7 @@ class FixFaultActivity:AppCompatActivity() {
         setContentView(view)
         fixFaultViewBind= FixFaultViewBind(this,view)
         fixFaultOnClick= FixFaultOnClick(this,fixFaultViewBind!!)
-        FaultType=intent.getStringExtra(PreferenceConstent.FaultType)
+        FaultType= intent!!.getStringExtra(PreferenceConstent.FaultType)!!
         setvalues()
         callApifortotalfault()
     }

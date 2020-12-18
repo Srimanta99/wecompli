@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.fragment_start_check.view.*
 class StartCheckFragmentViewBind:DeviceResolution {
     var tv_Selected_company:TextView?=null
     var tv_select_site:TextView?=null
+    var tv_selectCompany:TextView?=null
+    var tvselectSite:TextView?=null
+    var tvSelectdate:TextView?=null
     var tv_check_date:TextView?=null
     var ll_component:LinearLayout?=null
     var activity: HomeActivity?=null
@@ -25,9 +28,12 @@ class StartCheckFragmentViewBind:DeviceResolution {
     }
 
     private fun settypeface() {
-        tv_Selected_company!!.typeface=getgothmlight(activity)
-        tv_select_site!!.typeface=getgothmlight(activity)
-        tv_check_date!!.typeface=getgothmlight(activity)
+        tv_Selected_company!!.typeface=getwhitneysemibold(activity)
+        tv_select_site!!.typeface=getwhitneysemibold(activity)
+        tv_check_date!!.typeface=getwhitneysemibold(activity)
+        tvSelectdate!!.typeface=getwhitneybook(activity)
+        tvselectSite!!.typeface=getwhitneybook(activity)
+        tv_selectCompany!!.typeface=getwhitneybook(activity)
     }
 
     private fun viewbinds(view:View) {
@@ -35,7 +41,10 @@ class StartCheckFragmentViewBind:DeviceResolution {
         tv_select_site=view.findViewById(R.id.tv_select_site)
         tv_check_date=view.findViewById(R.id.tv_check_date)
         ll_component=view.findViewById(R.id.ll_component)
+        tvSelectdate=view.findViewById(R.id.tvSelectdate)
+        tvselectSite=view.findViewById(R.id.tvselectSite)
         rev_componentlist=view.findViewById(R.id.rev_componentlist)
+        tv_selectCompany=view.findViewById(R.id.tv_selectCompany)
 
     }
 

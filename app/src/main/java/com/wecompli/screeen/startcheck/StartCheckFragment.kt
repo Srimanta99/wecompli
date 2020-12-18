@@ -26,6 +26,7 @@ class StartCheckFragment: Fragment() {
         val view:View=LayoutInflater.from(activity).inflate(R.layout.fragment_start_check,null)
         fragmentViewBind= StartCheckFragmentViewBind(view,homeactivity!!)
         fragmentOnClick= StartCheckFragmentOnClick(homeactivity!!,fragmentViewBind!!,this)
+        homeactivity!!.homeViewBind!!.tv_header_text!!.setText(homeactivity!!.resources.getString(R.string.startcheck))
         setcompanyvalueanddate()
         return view;
 
@@ -43,5 +44,9 @@ class StartCheckFragment: Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeactivity!!.homeViewBind!!.tv_header_text!!.setText(homeactivity!!.resources.getString(R.string.startcheck))
+    }
 
 }

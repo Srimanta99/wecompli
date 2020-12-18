@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
+    android:id="@+id/llmainfaultitem"
+    android:background="@drawable/rectangular_shape_grey_round_corner_r"
+    >
+
+<RelativeLayout
+    android:id="@+id/rl_topheader_section"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_47sdp"
+
+    >
+
+    <TextView
+        android:id="@+id/tv_faultname"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_10sdp"
+        android:text="Femaile Changing Room"
+        android:textColor="#63728d"
+        android:textSize="@dimen/_13sdp"></TextView>
+    <ImageView
+        android:id="@+id/imgfaultdelete"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/delete_image"
+        android:layout_margin="@dimen/_10sdp"></ImageView>
+    <ImageView
+        android:id="@+id/imgfaulttypeimagr"
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+
+        android:layout_centerVertical="true"
+
+        android:background="@drawable/circle_shape_green"
+        android:layout_toLeftOf="@+id/imgfaultdelete"
+        android:layout_margin="@dimen/_10sdp"></ImageView>
+
+</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_bodytext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/_1sdp"
+        android:layout_marginRight="@dimen/_1sdp"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/rectangular_shape_white_round_corner_">
+               <TextView
+                   android:id="@+id/tvfaultdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+                   android:textSize="@dimen/_10sdp"
+            ></TextView>
+        <TextView
+            android:id="@+id/tv_remarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_10sdp"></TextView>
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_10sdp"
+            android:text=" Status: Parts ordered"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp">
+        <ImageView
+            android:id="@+id/img_fault1"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/_2sdp"></ImageView>
+        <ImageView
+            android:id="@+id/img_fault2"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:scaleType="fitXY"
+            ></ImageView>
+        <ImageView
+            android:id="@+id/img_fault3"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:scaleType="fitXY"
+           ></ImageView>
+        <ImageView
+            android:id="@+id/img_fault4"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_margin="@dimen/_1sdp"
+            android:scaleType="fitXY"
+           ></ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvdate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:text="@string/date"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/calendar"></TextView>
+            <TextView
+                android:id="@+id/tv_dateval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvdate"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:text="12/12/2020"></TextView>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

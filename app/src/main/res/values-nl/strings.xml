@@ -1,0 +1,551 @@
+<resources>
+    <string name="app_name">Wecompil</string>
+    <string name="rember_me">Onthoud me</string>
+    <string name="login">LOG IN</string>
+    <string name="forgotpassword">Wachtwoord vergeten?</string>
+    <string name="resetpassword">WACHTWOORD RESETTEN</string>
+    <string name="forgot_password">WACHTWOORD VERGETEN</string>
+    <string name="didypurememberyourpassword">Heb je je wachtwoord onthouden? LOG IN</string>
+    <string name="startcheck">START CONTROLE</string>
+    <string name="no_record_found">Geen record gevonden</string>
+
+    //language
+    <string name="select_language">Taal</string>
+    <string name="english">Engels</string>
+    <string name="german">Duitse</string>
+    <string name="english_code">en</string>
+    <string name="german_code">de</string>
+    <string name="dutch">Dutch</string>
+    <string name="dutch_code">nl</string>
+    <string name="spnish">Spaans</string>
+    <string name="spanish_code">es</string>
+
+    //home
+    <string name="dashboard">DASHBOARD</string>
+    <string name="servicing">ONDERHOUD</string>
+    <string name="start_chk">START CONTROLE</string>
+    <string name="incident_report">PROCES VERBAAL</string>
+    <string name="other">ANDEREN</string>
+    <string name="logout">UITLOGGEN</string>
+    <string name="repair">REPARATIE</string>
+
+    <string name="audit">CONTROLE</string>
+    <string name="audit_inspection">CONTROLE VAN DE AUDIT</string>
+    <string name="doc_manag">DOCUMENTS</string>
+    <string name="contact">CONTACTEN</string>
+    <string name="super_admin">SUPER BEHEERDER</string>
+    <string name="company_admin">BEDRIJF BEHEER</string>
+    <string name="nornal_user">NORMALE GEBRUIKER</string>
+    <string name="new_version_avalible">Er is een nieuwe update beschikbaar</string>
+    <string name="update">Bijwerken</string>
+    <string name="sureto_logout">Weet je zeker dat je moet uitloggen?</string>
+    <string name="underdevelopment">In ontwikkeling.</string>
+    <string name="permessionnecessay">Toestemming nodig</string>
+    <string name="externalstoragepermession">Externe opslag toestemming is noodzakelijk</string>
+
+
+
+    //dashboard
+    <string name="daily">DAGELIJKS</string>
+    <string name="weekly">WEKELIJKS</string>
+    <string name="monthly">MAANDELIJKS</string>
+    <string name="quaterly">per kwartaal</string>
+    <string name="halfyearly">HALFJAARLIJKS</string>
+    <string name="yearly">JAARLIJKSE</string>
+
+    //audit
+    <string name="weekly_audit">WEKELIJKSE AUDIT</string>
+    <string name="monthly_audit">MAANDELIJKSE AUDIT</string>
+
+
+    //check strings
+    <string name="acidentreport">ONGEVALSRAPPORT</string>
+    <string name="equipmentincedent">APPARATUUR INCIDENT</string>
+    <string name="buildingincedent">BOUW INCIDENT</string>
+    <string name="customerreport">KLANT / MATERIAAL INCIDENT</string>
+    <string name="equipmentincedentform">UITRUSTINGSFORMULIER</string>
+    <string name="buildingincedentform">FORMULIER VOOR GEBOUWEN</string>
+    <string name="customerreportform">FORMULIER VOOR KLANT / MATERIAAL</string>
+
+    //accident report form
+    <string name="accident_report_form">ONGEVAL RAPPORTFORMULIER</string>
+    <string name="testing_account">Testaccount</string>
+    <string name="servarity_level">SEVERITY NIVEAU</string>
+    <string name="enter_injured_person_name">Voer de naam van de gewonde in.</string>
+    <string name="enter_injured_person_phone">Voer het telefoonnummer van de gewonde in.</string>
+    <string name="check_accident_report">Controleer het ongevalsrapport Controleer</string>
+
+    //front body text
+    <string name="forehead">Voorhoofd</string>
+    <string name="jaw">Jaw / TWJ</string>
+    <string name="tooth">Tand</string>
+    <string name="chest">Kist</string>
+    <string name="rightelow">Rechter elleboog</string>
+    <string name="leftbelow">Linker elleboog</string>
+    <string name="adbomen">Buik</string>
+    <string name="rightwrist">Rechter pols</string>
+    <string name="leftwrist">Linkerpols</string>
+    <string name="hip">Heup</string>
+    <string name="fingure">Fingure</string>
+    <string name="right_thing">Juiste zaak</string>
+    <string name="left_thing">Links dingen</string>
+    <string name="right_knee">Rechterknie</string>
+    <string name="left_knee">Linkerknie</string>
+
+    <string name="right_shin">Rechts Shin</string>
+    <string name="left_shin">Links scheenbeen</string>
+    <string name="right_foot">Rechter voet</string>
+    <string name="left_foot">Linker voet</string>
+    <string name="conti">DOORGAAN MET</string>
+
+
+    //back body string
+
+    <string name="left_ear">Linker oor</string>
+    <string name="Right_ear">Rechter oor</string>
+    <string name="nose">Neus</string>
+    <string name="chin">Kin</string>
+    <string name="left_shoulder">Linker schouder</string>
+    <string name="Right_shoulder">Rechterschouder</string>
+    <string name="upper_back">Bovenrug</string>
+    <string name="lower_back">Onderrug</string>
+    <string name="left_leg">Linkerbeen</string>
+    <string name="right_leg">Rechter been</string>
+    <string name="left_calf">Linke Wade</string>
+    <string name="right_calf">Rechterkuit</string>
+    <string name="left_ankle">Linker enkel</string>
+    <string name="right_ankle">Rechter enkel</string>
+    <string name="left_toe">Linker teen</string>
+    <string name="right_toe">Right Toe</string>
+
+    <string name="wrongmessage">Er is iets fout gegaan. Probeer het later alstublieft.</string>
+
+    //live fault
+    <string name="live_fault">LIVE FAULT LIJST</string>
+    <string name="fault_action_list">FOUTEN LIJST</string>
+    <string name="ad_hoc_fault">+ AD HOC FOUT</string>
+
+    //fault action list
+
+    <string name="fault_action">FOUTEN LIJST</string>
+    <string name="total_faults">TOTAAL FOUTEN</string>
+
+    //servicing
+    <string name="press_scan">* druk om te scannen of selecteer foutcontrole</string>
+    <string name="time_spent">Tijd doorbrengen</string>
+    <string name="labour_charge"> Arbeidskosten: £ </string>
+    <string name="Part_cost"> Deelkosten: £</string>
+    <string name="total_cost"> Totale kosten: £ </string>
+    <string name="name_of_enginner">Naam van de ingenieur</string>
+    <string name="company_name">Bedrijfsnaam</string>
+    <string name="manager_name">Manager naam</string>
+    <string name="date">Datum</string>
+    <string name="hour">Uur</string>
+    <string name="min">min</string>
+    <string name="engineer_signature">Ingenieur handtekening hier</string>
+    <string name="manager_signature">Manager handtekening hier</string>
+    <string name="qrcodescan">QRCode Scan</string>
+    <string name="selectfaultchk">Selecteer Foutcontrole</string>
+
+    //Add hoc fault
+    <string name="add_hoc_fault">VOEG AD HOC FOUT TOE</string>
+    <string name="serverty_levels">SEVERITY \ n NIVEAU</string>
+    <string name="level_row">Laag </string>
+    <string name="select_image">Klik hier voor \ n afbeelding toevoegen</string>
+
+    //contact
+    <string name="vistor_conductor">BEZOEKER EN LEIDER</string>
+    <string name="responsible">VERANTWOORDELIJKE PERSOON</string>
+    <string name="emergencycontact">EMERGENCY CONTACT FORM</string>
+
+    //indicadance report
+    <string name="notethis">Let op: dit formulier is geen vervanging voor het wettelijk voorgeschreven ongevallenrecord Bi 510 en moet bovendien compleet zijn •
+bovendien voltooid.
+</string>
+    <string name="iconstent">Ik stem ermee in de informatie in dit ongevalsrapport te delen met derden, inclusief verzekeringsmaatschappij.  </string>
+    <string name="tocomply">Om te voldoen aan de CDPA Data Protection Act 1998 moeten persoonlijke gegevens vertrouwelijk worden behandeld. Wanneer deze formulieren zijn ingevuld, moeten ze veilig worden opgeslagen.</string>
+    <string name="satement1">VERKLARING VAN GETUIGEN 1</string>
+    <string name="satement2">STATEMENT BY WITNESS 2</string>
+    <string name="anyapperts">Alle betrokken apparatuur of apparatuur moet voor inspectie worden bewaard. Zie ommezijde voor ondertekende verklaring</string>
+    <string name="wentduty">ALS hij (hoe dan ook) in dienst ging, hoe laat en hoe lang?</string>
+    <string name="iweconfirm">Ik / wij bevestigen. dat voor zover ik / we weten de bovenstaande details, inclusief de beschrijving van het ongeval, waar en volledig zijn.
+    </string>
+    <string name="continuetowork">indien dienst (s) hij na het voorval bleef werken of buiten dienst ging?</string>
+    <string name="off_duty_injured_time">Was s (hij) op dat moment in of uit dienst?</string>
+    <string name="emp_details">If injured person was an employee this section is to be completed by the employees Manager or Senior employee
+    </string>
+    <string name="full_desc_injuredperson">Volledige beschrijving van eventuele geleden incidenten en behandeling</string>
+    <string name="full_desc_accident">Volledige beschrijving van de ongevalomstandigheden, inclusief een beschrijving van een apparaat of uitrusting
+    </string>
+    <string name="servertylevel">SERVICENIVEAU </string>
+    <string name="backbody">ACHTERZICHT</string>
+    <string name="frontbody">VOORAANZICHT</string>
+    <string name="clickher">Klik hier voor de bodykaart</string>
+    <string name="submit">SUBMIT</string>
+    <string name="notifywho">MELD WIE</string>
+    <string name="Selectcompany">Selecteer bedrijf</string>
+    <string name="selectsite">Selecteer site</string>
+    <string name="major">     MAJOR</string>
+    <string name="minor">     MINOR</string>
+    <string name="detailsoforganization">DETAILS VAN ORGANISATIE</string>
+    <string name="nameoforganization"> Naam van de Organisatie</string>
+    <string name="addressoforganization">Adres van de organisatie</string>
+    <string name="postcode"> Postcode</string>
+    <string name="telephone">Telefoon</string>
+    <string name="detailsofpersoninjured">DETAILS VAN GEWONNEN PERSOON</string>
+    <string name="fullnamepersoninjured">Volledige naam van de gewonde persoon</string>
+    <string name="personhomeaddress">Persoon thuisadres</string>
+    <string name="dateofbirth">Geboortedatum</string>
+    <string name="detailsofemployeecompleteform">DETAILS VAN WERKNEMER DIE HET FORMULIER AANVULLEN</string>
+    <string name="tickappropritebox">Vink het juiste vakje aan</string>
+    <string name="detailsofother"> Details van anderen</string>
+    <string name="descriprionofaccident"> BESCHRIJVING VAN ONGEVAL</string>
+    <string name="selectaccidentlocation">Selecteer ongevallocatie</string>
+    <string name="dateofoccurence">Datum van optreden</string>
+    <string name="timeofoccurence">Tijd van optreden</string>
+    <string name="takephatoorvideo">NEEM FATO </string>
+    <string name="employmentdetails">WERKGEGEVENS</string>
+    <string name="signofbehalf">Ondertekend (namens eigenaar / bedrijf)</string>
+    <string name="patientname">Naam patiënt</string>
+    <string name="postion">Positie</string>
+    <string name="statementdetails">verklaring details</string>
+    <string name="signbywitness">Adres van Getuige</string>
+    <string name="addressofwitness">Adresse des Zeugen</string>
+    <string name="pairntnamecompletedby">Afdruknaam (formulier ingevuld door)</string>
+    <string name="signinjuredperson">Zeichen (verletzte Person)</string>
+    <string name="prientinjuredperson">Afdruknaam (gewonde persoon)</string>
+    <string name="employee">  werknemer</string>
+    <string name="customer"> Klant</string>
+    <string name="visitor">  Bezoeker</string>
+    <string name="others">Anderen (geef hieronder details)</string>
+
+    // Equpment Incident
+    <string name="serverty_level">SERVICENIVEAU </string>
+    <string name="decsriptionofincident">BESCHRIJVING VAN INCIDENT</string>
+    <string name="equpmentname">Naam apparatuur</string>
+    <string name="full_description_ofincident">Volledige beschrijving van het incident</string>
+    <string name="address">Adres</string>
+    <string name="antinjary">Any Injuries:</string>
+    <string name="yes"> JA</string>
+    <string name="no">NEE</string>
+    <string name="pass"> VOORBIJ LOPEN</string>
+    <string name="fail">FAIL</string>
+    <string name="injuredpersonname">Naam gewonde persoon</string>
+    <string name="full_descriptionof_injuredsuffer">Volledige beschrijving van geleden letsels en gegeven behandeling</string>
+    <string name="signform_completed_by">Ondertekenen (formulier ingevuld door)</string>
+    <string name="prientname_compleled">Afdruknaam (formulier ingevuld door)</string>
+
+    //building incidence
+    <string name="descriptionofincidence">BESCHRIJVING VAN INCIDENT</string>
+    <string name="fuul_desc_of_incidence">Volledige beschrijving van het incident</string>
+    <string name="full_desc_inju_suff_treatment">Volledige beschrijving van geleden letsels en gegeven behandeling</string>
+
+    //customer
+    <string name="customerstaff">KLANT / PERSONEEL DETAILS</string>
+    <string name="customer_staff_name">Naam klant / personeel</string>
+    <string name="staeme_of_witness">GETUIGENISVERKLARING</string>
+    <string name="witness_statement">Getuigenverklaring</string>
+    <string name="prient_name">Print naam</string>
+
+
+    <string name="select_accident_loc">SELECTEER ACCCIDENTLOCATIE</string>
+
+    //adhoc fault
+    <string name="faultname">Foutnaam</string>
+    <string name="fault_description">Foutbeschrijving</string>
+    <string name="low">LAAG</string>
+    <string name="medium">MEDIUM</string>
+    <string name="high">HIGH</string>
+    <string name="adhoc_submit_sucessfull">ADhoc-fout succesvol verzonden.</string>
+    <string name="enter_adhoc_fault_name">Voer een foutnaam in.</string>
+    <string name="enter_adhoc_fault_description">Voer een foutbeschrijving in.</string>
+    <string name="select_serverty_level">Selecteer een prioriteitsniveau.</string>
+
+    //barcode details
+    <string name="generalbuilding">Algemeen gebouw</string>
+    <string name="task"> Taak</string>
+    <string name="passwithminorfail">GA DOOR MET MINDER FOUT</string>
+    <string name="Pass">VOORBIJ LOPEN</string>
+
+
+
+    //checksummery
+    <string name="checksummery">BEKIJK SAMENVATTING</string>
+    <string name="total_fault">TOTALE FOUT </string>
+    <string name="totaltask">TOTALE TAAK  </string>
+    <string name="all_chk_submit">Alle cheques zijn succesvol ingediend.</string>
+    <string name="bar_code">SCAN QR-CODE</string>
+    <string name="miner_fail">KLEINE MISLUKKING</string>
+    <string name="tap_to_sign">TAP OM TE TEKENEN</string>
+    <string name="input_text">INVOERTEKST</string>
+    <string name="phato">Foto</string>
+    <string name="view_more">Bekijk meer</string>
+
+
+    //completetasklist
+    <string name="completetasklist">COMPLETE TAAKLIJST</string>
+
+    //edittask
+    <string name="task_name">Opdrachtnaam</string>
+    <string name="task_descrip">Taakomschrijving</string>
+    <string name="task_addition_info">Taak Aanvullende info</string>
+    <string name="task_assign_by">Taak toewijzen door</string>
+    <string name="task_assign_to">Taak toewijzen aan</string>
+    <string name="task_date">Taakdatum</string>
+
+    //emaillist
+    <string name="email_list">EMIL LIJST</string>
+    <string name="done">GEDAAN</string>
+
+    //minorfail
+    <string name="edittask"> TAAK BEWERKEN</string>
+    <string name="faultmangment">FOUTBEHEER</string>
+    <string name="aditioal_information">Extra informatie</string>
+
+    //forgotpass
+    <string name="forgotemail">E-mail</string>
+
+    //input text
+    <string name="inputnote">Notitie invoeren</string>
+
+    //intro
+    <string name="skip">OVERSPRINGEN</string>
+
+    //livetask
+    <string name="livetask">LIVE TAAKLIJST</string>
+    <string name="live_complete_task">INGEVULDE TAAKLIJST</string>
+    <string name="add_task">VOEG TAAK TOE</string>
+
+    //login
+    <string name="login_password">wachtwoord</string>
+    <string name="login_email">E-mail</string>
+    <string name="version">versie</string>
+    <string name="permession_request">Toestemmingsverzoek</string>
+    <string name="password_blank">Voer wachtwoord in alstublieft</string>
+    <string name="email_blank">Voer alstublieft een e-mail in</string>
+    <string name="valid_credential">Voer een geldig e-mailadres en wachtwoord in</string>
+    <string name="something_wrong">Er is iets mis. Probeer het opnieuw met een geldig e-mailadres en wachtwoord.</string>
+
+
+    //Add new task
+    <string name="add_new_task">NIEUWE TAAK TOEVOEGEN</string>
+    <string name="new_task_name">Voer taaknaam in</string>
+    <string name="new_task_description">Task Description</string>
+    <string name="new_task_addition_info">Extra informatie</string>
+    <string name="new_task_assign_to">Selecteer Taak toewijzen aan</string>
+    <string name="new_task_assign_by">Selecteer Taak toewijzen door</string>
+    <string name="new_task_due_date">Task Due Date</string>
+
+    //notify email
+    <string name="notifyemail">E-mail melden</string>
+
+    //select site
+    <string name="select_site">Selecteer site</string>
+    <string name="select_all">selecteer alles</string>
+
+    //submit task
+    <string name="taskcompletion">Taak volbrengen</string>
+    <string name="taskname">Opdrachtnaam</string>
+    <string name="description_of_work">Werkbeschrijving</string>
+    <string name="add_phato">FATO TOEVOEGEN</string>
+    <string name="staffname">Naam personeel</string>
+    <string name="signinhere">Sign In here</string>
+
+    //sign task
+    <string name="completed_by">Afgemaakt door</string>
+    <string name="prients_name">Naam </string>
+
+    //task details
+    <string name="task_date_and_time">TAAK DATUM EN TIJD</string>
+    <string name="task_description">TAAKOMSCHRIJVING</string>
+    <string name="taskdetails_assign_to">TAAK TOEKENNEN AAN</string>
+    <string name="taskdetails_assibn_by">TAAK TOEGEWEZEN DOOR</string>
+    <string name="complete_task">voltooide taak</string>
+    <string name="update_task">Taak bijwerken </string>
+
+    //teamprature
+    <string name="input_tempa">Invoertemperatuur</string>
+    //
+    <string name="total_faulst"> TOTALE FOUT</string>
+
+    //update fault
+    <string name="update_fault"> Update fout</string>
+    <string name="select_fault_status">Selecteer Foutstatus</string>
+    <string name="select_status_date">Selecteer Status Datum</string>
+    <string name="status">staat</string>
+    <string name="fault_staus_report">FOUTSTATUSRAPPORT</string>
+
+    //
+    <string name="notify_schedule">SELECTEER MELDINGSSCHEMA</string>
+    <string name="name">Naam</string>
+
+    //checked element
+    <string name="minor_fail">KLEINE MISLUKKING</string>
+    <string name="teamperature">TEMPERATUUR</string>
+
+    //check summery
+    <string name="start_begin">Selecteer Vink aan om te beginnen met scannen</string>
+
+    //complete task
+    <string name="thanks">bedankt! Alle controles voltooid voor</string>
+    <string name="dashboards">DASHBOARD</string>
+
+    //toast
+    <string name="successfully">Succesvol bijgewerkt. </string>
+
+    //dashboard summery
+    <string name="produces">produceert</string>
+    <string name="sstatus">STATUS</string>
+
+    //date picker
+    <string name="set_date">Datum instellen</string>
+    <string name="set_time">Tijd instellen</string>
+    <string name="set">reeks</string>
+    <string name="cancel">annuleren</string>
+
+    //fault list
+    <string name="ele_fault_list">ELement-foutenlijst</string>
+
+    //task details with fault
+    <string name="date_and_time">TAAK DATUM EN TIJD</string>
+    <string name="no_fault_image">Geen foutafbeelding gevonden</string>
+    <string name="fault_status_report">FOUTSTATUSRAPPORT</string>
+    <string name="selects_fault_status">Selecteer Foutstatus</string>
+    <string name="fix_fault">FIX FAULT</string>
+
+    //fault layout 3
+    <string name="serverty_lvels">Ernstniveau: </string>
+    <string name="search">zoeken</string>
+    <string name="select_date">Selecteer een datum</string>
+
+    //vistior contact
+    <string name="list_form">LIJSTFORMULIER</string>
+    <string name="add_form">Formulier toevoegen</string>
+    <string name="in_time">Op tijd</string>
+    <string name="outime">Tijd uit</string>
+    <string name="company_names">Bedrijfsnaam</string>
+    <string name="visitor_contractor_name">Naam bezoeker of aannemer</string>
+    <string name="sign_to_confirm">Ondertekenen om te bevestigen</string>
+    <string name="reson_forvisit">Reden van bezoek</string>
+    <string name="details_serial_no">Als bevestigingsmateriaal, details serienummer</string>
+    <string name="issue">KWESTIE</string>
+    <string name="returns">RETURN</string>
+
+    //responsible person
+    <string name="select_resonsible_person">SELECTEER VERANTWOORDELIJK TYPE</string>
+    <string name="health_and_seafty_responsible">Gezondheid en veiligheid verantwoordelijk </string>
+    <string name="ig_lead">IG Lead</string>
+    <string name="fire_marshal">Brandweercommandanten</string>
+    <string name="frist_aids_appint_person">EHBOers / persoon aanwijzen</string>
+    <string name="name1">naam</string>
+
+    //select from
+
+    <string name="select_form">SELECTEER VORM</string>
+    <string name="visitor_conductor_log">Formulier logboek bezoeker en dirigent</string>
+    <string name="responsible_person_form">Formulier verantwoordelijke persoon</string>
+    <string name="emergency_contract">Contactformulier voor noodgevallen</string>
+    <string name="start">BEGIN</string>
+
+    //tap to sign
+    <string name="done1">GEDAAN</string>
+    <string name="sign_here">TEKEN HIER</string>
+    <string name="cancel1">ANNULEER</string>
+    <string name="clear">DUIDELIJK</string>
+
+    <string name="doc1">Document 1</string>
+
+    //work type
+    <string name="work_type">Selecteer Werktype</string>
+    <string name="repair_menu">Reparatie</string>
+    <string name="service">Service</string>
+    <string name="others1">anders</string>
+    <string name="permission_read_phone_state_rationale">IEMI-toestemming apparaat</string>
+    <string name="permissions_not_granted_read_phone_state">Permession not grant</string>
+
+    //checkeditem
+    <string name="chk_status">Status:</string>
+    <string name="minor_fault">KLEINE FOUT</string>
+    <string name="teamprature">Temperatuur</string>
+    <string name="signoff">afmelden</string>
+    <string name="names">Naam :</string>
+    <string name="textinput">TEKST INVOER</string>
+    <string name="test"> Test :</string>
+    <string name="camera">CAMERA</string>
+
+    <string name="loading">Bezig met laden....</string>
+    <string name="nointerner_connection">Geen internet verbinding. Maak verbinding met internet</string>
+    <string name="select_image_mode">Kies afbeelding uit</string>
+    <string name="from_gallery">Selecteer een foto uit de galerij</string>
+    <string name="from_camera">Maak een foto van de camera</string>
+    <string name="select_company_frist">Selecteer eerst Bedrijf.</string>
+    <string name="select_company_side">Please select company and site.</string>
+    <string name="select_company">Selecteer Bedrijf</string>
+    <string name="select_site_">Selecteer een site</string>
+
+    <string name="select_site_hader">SELECTEER SITE</string>
+    <string name="select_company_hader">KIES BEDRIJF</string>
+    <string name="search_">zoeken</string>
+    <string name="add_sucessfully">Met succes toegevoegd</string>
+    <string name="emergency">Emergency:</string>
+    <string name="contact_name">Contactnaam:</string>
+    <string name="address_">Adres:</string>
+    <string name="choose_start_time">Kies starttijd:</string>
+    <string name="choose_end_time">Kies eindtijd:</string>
+
+
+    //visitor
+    <string name="please_select_date">Selecteer datum</string>
+    <string name="please_select_start_time">Selecteer Starttijd</string>
+    <string name="please_select_out_time">Selecteer alstublieft Tijd uit</string>
+    <string name="please_enter_company_name">Voer de bedrijfsnaam in</string>
+    <string name="please_enter_comtracto_name">Voer de naam van de aannemer in</string>
+    <string name="please_enter_reason_for_visit">Voer de reden voor bezoek in.</string>
+    <string name="please_enter_serial_no">Voer het serienummer in.</string>
+
+    <string name="start_date">Begin datum</string>
+    <string name="end_date">einddatum</string>
+    <string name="notifyme_about_exp">Informeer mij over de vervaldatum</string>
+    <string name="notify_who">Waarschuw wie</string>
+
+    <string name="select_phato_choose">Selecteer actie</string>
+    <string name="select_from_gallery">Selecteer een foto uit de galerij</string>
+    <string name="capture_from_camera">Maak een foto van de camera</string>
+
+    <string name="element_fault_repair">Elementfoutreparatie succesvol.</string>
+
+    <string name="wrong_respose">Er is iets mis. Probeer het later nogmaals.</string>
+
+    //document
+    <string name="enter_doc_name">Voer alstublieft de documentnaam in.</string>
+    <string name="enter_start_date">Selecteer Startdatum.</string>
+    <string name="enter_end_date">Selecteer einddatum</string>
+    <string name="notify_me_expairy">Kies alsjeblieft Informeer mij over de vervaldatum</string>
+
+    //add new task
+    <string name="taskadded">Taak succesvol toegevoegd</string>
+    <string name="plzselectdate">Selecteer datum.</string>
+    <string name="assigntaskbysomeone">Wijs taak door iemand toe</string>
+    <string name="assigntasktosomeone">Wijs een taak aan iemand toe</string>
+    <string name="newtaskname">Voer de taaknaam in</string>
+
+    <string name="thanksforallchk">Bedankt! Alle controles voltooid voor</string>
+    <string name="totalfaulltsubmit">Totaal aantal ingediende fouten</string>
+    <string name="selectrepairdate">Please select Repair date.</string>
+    <string name="selectstatustype">Selecteer statustype.</string>
+    <string name="pleaseeneteremail">Voer alstublieft e-mail in</string>
+    <string name="inputsomevalue">Voer een waarde in.</string>
+    <string name="pleaseenetrteamp">Voer temperatuur in.</string>
+    <string name="dateoffaultsubmit">Datum van ingebrachte fout</string>
+    <string name="selectfault_Type">Selecteer Fouttype</string>
+    <string name="Date">Datum: </string>
+    <string name="repair1">Reparatie</string>
+    <string name="Other">Other</string>
+    <string name="Service">Service</string>
+
+    <string name="enter_patient_name">Voer een prient-naam in</string>
+    <string name="Details">Details</string>
+    <string name="remark">Remarks</string>
+
+
+</resources>

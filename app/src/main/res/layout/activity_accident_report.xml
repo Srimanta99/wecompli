@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaf0f3"
+    android:background="@drawable/logintopbg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_top_accident_form"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
-        android:background="@color/homehearbg">
+      >
 
         <RelativeLayout
             android:id="@+id/rl_back_accidentreport"
@@ -33,46 +33,19 @@
             android:textSize="@dimen/_14sdp" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/rl_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/bottom_header_color"
 
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnsubmit"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_7sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_blue_rounded_corner_"
-            android:text="@string/submit"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp" />
-
-        <Button
-            android:id="@+id/btn_notify_who"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_7sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_red_rounded_corner_"
-            android:text="@string/notifywho"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp" />
-
-    </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_white_top_two_rounded_corner"
+    android:layout_below="@+id/rl_top_accident_form">
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/rl_bottom"
         android:scrollbars="none"
-        android:layout_below="@+id/rl_top_accident_form"
+
       >
 
         <LinearLayout
@@ -570,7 +543,7 @@
                         android:layout_height="@dimen/_45sdp"
                         android:layout_margin="@dimen/_5sdp"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/rectangle_blue_rounded_corner_">
+                        android:background="@drawable/gradient_login_button">
 
                         <ImageView
                             android:id="@+id/imgcamera"
@@ -1076,10 +1049,41 @@
                     android:layout_marginBottom="@dimen/_50sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11sdp"/>
+                <LinearLayout
+                    android:id="@+id/rl_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    android:layout_alignParentBottom="true"
 
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnsubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_7sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/gradient_login_button"
+                        android:text="@string/submit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <Button
+                        android:id="@+id/btn_notify_who"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_7sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/gradient_red_button"
+                        android:text="@string/notifywho"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+</LinearLayout>
 
 </RelativeLayout>

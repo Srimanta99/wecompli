@@ -38,8 +38,8 @@ import org.jsoup.Jsoup
 import java.io.IOException
 
 class HomeActivity:AppCompatActivity(){
-    var homeViewBind:HomeViewBind?=null
-    var homeOnClick:HomeOnClick?=null
+    public var homeViewBind:HomeViewBind?=null
+     var homeOnClick:HomeOnClick?=null
      public  var userData:LoginUserDetailsModel?=null
     internal var currentVersion: String?=""
     internal var latestVersion:String? = null
@@ -47,26 +47,33 @@ class HomeActivity:AppCompatActivity(){
     internal var dialog: Dialog?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val view:View=LayoutInflater.from(this).inflate(R.layout.activity_home,null)
-        homeViewBind= HomeViewBind(this,view)
-        homeOnClick= HomeOnClick(this,homeViewBind!!)
+        val view:View=LayoutInflater.from(this).inflate(R.layout.activity_home, null)
+        setContentView(view)
+     //  var resideMenu = ResideMenu(this)
+      //  resideMenu.setBackground(R.drawable.gradient_sidemenu)
+      //  resideMenu.attachToActivity(this)
+        homeViewBind= HomeViewBind(this, view)
+        homeOnClick= HomeOnClick(this, homeViewBind!!)
        //
         homeViewBind!!.drawer_layout!!.setScrimColor(Color.TRANSPARENT)
 
-        val actionBarDrawerToggle: ActionBarDrawerToggle =
-            object : ActionBarDrawerToggle(this,  homeViewBind!!.drawer_layout,R.string.start, R.string.cancel) {
-                private val scaleFactor = 6f
+        var actionBarDrawerToggle: ActionBarDrawerToggle =
+            object : ActionBarDrawerToggle(this, homeViewBind!!.drawer_layout, R.string.start, R.string.cancel) {
+                private val scaleFactor = 4f
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                     super.onDrawerSlide(drawerView, slideOffset)
                     val slideX = drawerView.width * slideOffset
                     homeViewBind!!.mainView!!.setTranslationX(slideX)
                     homeViewBind!!.mainView!!.setScaleX(1 - slideOffset / scaleFactor)
                     homeViewBind!!.mainView!!.setScaleY(1 - slideOffset / scaleFactor)
+                  //  drawerView!!.setBackgroundColor(resources.getColor(R.color.login_bg_header))
+                  // homeViewBind!!.mainView!!.setBackgroundColor(resources.getColor(R.color.login_bg_header))
                 }
+
             }
         homeViewBind!!.drawer_layout!!.addDrawerListener(actionBarDrawerToggle)
 
-        setContentView(view)
+
         getuserdataafterlogin()
         setvalueofuser()
        // showsidemenulist()
@@ -130,7 +137,9 @@ class HomeActivity:AppCompatActivity(){
 
             if (onlineVersion != null && !onlineVersion.isEmpty()) {
 
-                if (java.lang.Float.valueOf(currentVersion!!) < java.lang.Float.valueOf(onlineVersion)) {
+                if (java.lang.Float.valueOf(currentVersion!!) < java.lang.Float.valueOf(
+                        onlineVersion
+                    )) {
                     //show anything
                     showUpdateDialog()
                 }
@@ -151,18 +160,25 @@ class HomeActivity:AppCompatActivity(){
     val appPackageName = packageName // getPackageName() from Context or Activity object
     try {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
-    } catch (anfe:android.content.ActivityNotFoundException) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")))
+    } catch (anfe: android.content.ActivityNotFoundException) {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
+            )
+        )
     }
 
     dialog.dismiss()
      }
 
-        builder.setNegativeButton(resources.getString(R.string.cancel), object: DialogInterface.OnClickListener {
-    override fun onClick(dialog: DialogInterface, which:Int) {
-     dialog.dismiss()
-     }
-    })
+        builder.setNegativeButton(
+            resources.getString(R.string.cancel),
+            object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface, which: Int) {
+                    dialog.dismiss()
+                }
+            })
 
       builder.setCancelable(true)
       dialog = builder.show()
@@ -192,12 +208,16 @@ class HomeActivity:AppCompatActivity(){
     private fun showsidemenulist() {
         val layoutManager = LinearLayoutManager(this)
         homeViewBind!!.rec_sidemenu!!.layoutManager=layoutManager
-        sideMenuAdapter= SideMenuAdapter(this,userData!!.menu, object : OnItemClickInterface {
+        sideMenuAdapter= SideMenuAdapter(this, userData!!.menu, object : OnItemClickInterface {
             override fun OnItemClick(position: Int) {
-               // if(position==0)
-                  //  showdashboardFragment()
-             //   else
-                Toast.makeText(this@HomeActivity,userData!!.menu.get(position).menuTitle+" "+"Under Development",Toast.LENGTH_LONG).show()
+                // if(position==0)
+                //  showdashboardFragment()
+                //   else
+                Toast.makeText(
+                    this@HomeActivity,
+                    userData!!.menu.get(position).menuTitle + " " + "Under Development",
+                    Toast.LENGTH_LONG
+                ).show()
 
             }
         })
@@ -208,6 +228,7 @@ class HomeActivity:AppCompatActivity(){
         homeViewBind!!.tv_user_name!!.text=userData!!.full_name
        // homeViewBind!!.tv_user_type!!.text=userData!!.user_type
         homeViewBind!!.tv_user_email!!.text=userData!!.email
+        homeViewBind!!.tv_companyname!!.text=userData!!.company_name
        // AppSheardPreference(this).setvalue_in_preference(PreferenceConstent.site_id,userData!!.site_id)
         loadprofileimage()
     }
@@ -236,7 +257,11 @@ class HomeActivity:AppCompatActivity(){
         imageLoader.init(ImageLoaderConfiguration.createDefault(this))
         imageLoader.loadImage(userData!!.user_profile_picture_path, options,
             object : SimpleImageLoadingListener() {
-                override fun onLoadingComplete(imageUri: String?, view: View?, loadedImage: Bitmap?) {
+                override fun onLoadingComplete(
+                    imageUri: String?,
+                    view: View?,
+                    loadedImage: Bitmap?
+                ) {
                     homeViewBind!!.cirecularimageview!!.setImageBitmap(loadedImage)
                 }
             })

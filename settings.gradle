@@ -1,0 +1,3 @@
+include ':ResideMenu'
+include ':app', ':commonutils_2_0', ':indicatorseekbar'
+rootProject.name='Wecompli'

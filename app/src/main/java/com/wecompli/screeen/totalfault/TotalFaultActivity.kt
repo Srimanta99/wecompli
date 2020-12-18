@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -23,6 +24,7 @@ import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
 import com.wecompli.utils.sheardpreference.AppSheardPreference
 import com.wecompli.utils.sheardpreference.PreferenceConstent
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -181,5 +183,49 @@ class TotalFaultActivity: AppCompatActivity() {
         val lmanager= LinearLayoutManager(this)
         totalFaultViewBind!!.recview_totalfault!!.layoutManager=lmanager
         totalFaultViewBind!!.recview_totalfault!!.adapter=totalfaultAdapter
+    }
+
+    public  fun callApiforemovefault(id:String) {
+        val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
+        customProgress.showProgress(this, "Please Wait..", false)
+        val apiInterface = Retrofit.retrofitInstance?.create(ApiInterface::class.java)
+        try {
+            val paramObject = JSONObject()
+            paramObject.put("checks_process_fault_id",id)
+            paramObject.put("work_type","repair")
+            paramObject.put("fault_status_id",6)
+            paramObject.put("site_id",
+                AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.site_id))
+            var obj: JSONObject = paramObject
+            var jsonParser: JsonParser = JsonParser()
+            var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
+            val callApi = apiInterface.calllApiForRemoveFalt(
+                AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.loginuser_token),
+                AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.site_id),
+                gsonObject!!
+            )
+            callApi.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    customProgress.hideProgress()
+                    var response_obj= JSONObject(response.body()!!.string())
+                    //val response_obj = JSONObject(response.body()!!.string())
+                    if (response_obj.getBoolean("status")){
+                        Toast.makeText(this@TotalFaultActivity, response_obj.getString("message"), Toast.LENGTH_LONG).show()
+                        callApifortotalfault()
+
+                    }else
+                        Toast.makeText(this@TotalFaultActivity, response_obj.getString("message"), Toast.LENGTH_LONG).show()
+
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    customProgress.hideProgress()
+                }
+            })
+
+        }catch (e: Exception){
+            e.printStackTrace()
+            customProgress.hideProgress()
+        }
     }
 }

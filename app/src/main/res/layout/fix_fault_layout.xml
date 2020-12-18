@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_bg">
+    android:background="@drawable/logintopbg">
     <RelativeLayout
         android:id="@+id/rl_top_taskdetails"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="@drawable/rectangular_shape_blue">
+        android:layout_height="@dimen/_50sdp">
 
         <RelativeLayout
             android:id="@+id/rl_back_fixfault"
@@ -37,14 +36,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/rl_bottom"
-        android:layout_margin="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/rectangle_white_top_two_rounded_corner"
         android:layout_below="@+id/rl_top_taskdetails"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
-            android:background="@drawable/rectangular_shape_white">
+            android:layout_margin="@dimen/_7sdp"
+          >
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -202,7 +203,7 @@
                             android:layout_height="@dimen/_40sdp"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="@dimen/_10sdp"
-                            android:background="@drawable/rectangular_shape_blue_button">
+                            android:background="@drawable/gradient_login_button">
 
                             <ImageView
                                 android:id="@+id/camera"
@@ -496,6 +497,7 @@
                             android:gravity="center"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:background="@drawable/rectangular_shape_grey"
                             android:text="@string/manager_signature"/>
                         <ImageView
@@ -516,7 +518,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:layout_alignParentBottom="true"
-        android:background="@color/bottom_header_color"
+android:background="@color/white"
         android:orientation="horizontal">
 
         <!--  <RelativeLayout
@@ -546,7 +548,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_10sdp"
             android:layout_weight="1"
-            android:background="@drawable/rectangular_shape_blue_rounded_corner">
+            android:background="@drawable/gradient_login_button">
             <TextView
                 android:id="@+id/tv_submit"
                 android:layout_width="match_parent"
@@ -566,7 +568,7 @@
             android:layout_weight="1"
             android:layout_margin="@dimen/_10sdp"
 
-            android:background="@drawable/rectangle_red_rounded_corner_">
+            android:background="@drawable/gradient_red_button">
 
             <TextView
                 android:id="@+id/tv_notifytask"

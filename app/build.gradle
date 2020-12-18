@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 30
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+       // abortOnError false
+       // ignoreWarnings true //false
+    }
+
+    buildToolsVersion "30.0.2"
+    defaultConfig {
+        applicationId "com.wecompli"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 32
+        versionName "3.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation  project(':commonutils_2_0')
+    implementation project(':indicatorseekbar')
+
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    // JSON Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
+    //circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation 'android.arch.lifecycle:extensions:1.1.0'
+    implementation 'android.arch.lifecycle:viewmodel:1.1.0'
+
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+    implementation 'com.koushikdutta.async:androidasync:2.+'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    implementation 'org.jsoup:jsoup:1.8.3'
+
+    /*implementation ('com.wrapp.floatlabelededittext:library:0.0.6'){
+        exclude group: 'com.nineoldandroids', module: 'library'    }
+    implementation ('com.specyci:residemenu:1.6+') {
+        exclude group: 'com.nineoldandroids', module: 'library'    }
+*/
+
+    // kapt "androidx.databinding:databinding-compiler:4.1.0-alpha4"
+
+
+}

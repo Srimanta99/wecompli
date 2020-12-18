@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logintopbg">
+    <RelativeLayout
+        android:id="@+id/rl_top_taskdetails"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rl_back_temptails"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/left_arrow"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_general_task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/_14sdp"
+            android:text="@string/task"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_top_taskdetails"
+        android:background="@drawable/rectangle_white_top_two_rounded_corner">
+    <TextView
+
+        android:id="@+id/tv_task_completedby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/completed_by"
+        android:textColor="@color/text_color_check"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textSize="@dimen/_12sdp"
+        android:layout_below="@+id/rl_top_taskdetails"/>
+    <RelativeLayout
+        android:id="@+id/tv_etarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginLeft="@dimen/_26sdp"
+        android:layout_marginRight="@dimen/_26sdp"
+        android:background="@drawable/rectangular_shape_round_gery_broder"
+        android:layout_below="@+id/tv_task_completedby"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_14sdp"
+            android:hint="@string/prients_name"
+            android:textSize="@dimen/_11sdp"
+            android:gravity="top"
+            android:padding="@dimen/_4sdp"
+
+            android:background="@drawable/rectangular_shape_round_gery_broder"/>
+
+        <TextView
+            android:id="@+id/tv_tap_to_sign"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+
+            android:layout_below="@+id/et_input"
+            android:layout_marginRight="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:text="@string/signinhere"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/rectangle_gray_rounded_corner"/>
+
+        <ImageView
+            android:id="@+id/img_sign"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_alignTop="@+id/tv_tap_to_sign"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_30sdp" />
+
+        <Button
+            android:id="@+id/btn_submit_input"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:background="@drawable/gradient_red_button"
+            android:layout_below="@+id/tv_tap_to_sign"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_tesk_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_etarea"
+        android:paddingLeft="@dimen/_30sdp"
+        android:paddingRight="@dimen/_30sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/text_color_check"
+        android:layout_marginTop="@dimen/_30sdp"/>
+    </LinearLayout>
+</RelativeLayout>

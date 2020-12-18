@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_cross_cameraphato"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_7sdp"
+            android:background="@drawable/cross"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_toRightOf="@+id/rl_cross_completedtask"
+         android:background="@drawable/rectangular_shape_round_gery_broder"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/login_bg">
+
+
+  <TextView
+      android:id="@+id/tv_elementname"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_30sdp"
+      android:text="Name"
+      android:gravity="center"
+      android:textColor="@color/white"
+      android:textSize="@dimen/_14sdp"
+    android:background="@drawable/rectangular_shape_blue" />
+
+             <TextView
+                 android:id="@+id/tv_e_details"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/_24sdp"
+                 android:textSize="@dimen/_12sdp"
+                 android:layout_below="@+id/tv_elementname"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_230sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_below="@+id/tv_e_details"
+                android:background="@drawable/rectangular_shape_white"
+                >
+
+
+                <LinearLayout
+                    android:id="@+id/rl_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_55sdp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/bottom_header_color"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btn_retake"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/_7sdp"
+                        android:text="RETAKE"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:background="@drawable/rectangular_shape_blue_button"/>
+                    <Button
+                        android:id="@+id/btn_submit_phato"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/_7sdp"
+                        android:text="SUBMIT"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:background="@drawable/rectangular_shape_red"/>
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/img_preview"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/rl_bottom"
+                    android:layout_margin="@dimen/_14sdp"
+
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+    </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -21,10 +21,10 @@ class PassFailViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     val linearLayout:LinearLayout=itemView.findViewById(R.id.constraint)
 
     fun Bindviewsetvalue(elementDetailsRow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int) {
-        if (position%2==0)
+       /* if (position%2==0)
             linearLayout.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
             else
-            linearLayout.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
+            linearLayout.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))*/
 
         val deviceResolution=DeviceResolution(checkElementDetailsActivity)
          tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)

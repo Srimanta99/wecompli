@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -17,6 +18,7 @@ import com.wecompli.apiresponsemodel.checkelementdetails.SelectedSiteSessionForC
 import com.wecompli.apiresponsemodel.checksummery.CheckRow
 import com.wecompli.apiresponsemodel.checksummery.CheckSummeryResponse
 import com.wecompli.apiresponsemodel.home.LoginUserDetailsModel
+import com.wecompli.apiresponsemodel.login.SiteList
 import com.wecompli.apiresponsemodel.regeratetokenresponse.RegenerateTokenResponse
 import com.wecompli.network.ApiInterface
 import com.wecompli.network.Retrofit
@@ -28,6 +30,7 @@ import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
 import com.wecompli.utils.sheardpreference.AppSheardPreference
 import com.wecompli.utils.sheardpreference.PreferenceConstent
+import kotlinx.android.synthetic.main.home_header.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,17 +43,28 @@ class CheckSummeryFragment: Fragment() {
     var  listvalue:List<CheckRow>?=null
     var componet:String=""
     var sessionname:String=""
-    var sideid:String=""
-    var date:String=""
+     public   var sideid:String=""
+    public var date:String=""
     var summerryViewBind:SummerryViewBind?=null
+    var summeryCheckOnclick:SummeryCheckOnclick?=null
     public  var userData:LoginUserDetailsModel?=null
-
+    public var site_list:List<SiteList>? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         homeactivity=getActivity() as HomeActivity
         val view:View=LayoutInflater.from(activity).inflate(R.layout.fragment_check_summery,null)
         summerryViewBind= SummerryViewBind(homeactivity!!,view)
+        summeryCheckOnclick=SummeryCheckOnclick(homeactivity!!,summerryViewBind!!,this);
+        homeactivity!!.homeViewBind!!.tv_header_text!!.setText(homeactivity!!.resources.getString(R.string.checksummery))
+
         getuserdataafterlogin()
+        setvalue()
         return  view;
+    }
+
+    private fun setvalue() {
+        summerryViewBind!!.tvdateval!!.setText(date)
+        summerryViewBind!!.tvsiteName!!.setText( AppSheardPreference(homeactivity!!).getvalue_in_preference(PreferenceConstent.UserSite))
+        summerryViewBind!!.tvComayName!!.setText(homeactivity!!.userData!!.company_name)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,11 +74,15 @@ class CheckSummeryFragment: Fragment() {
          sideid = arguments!!.getString("sideid")!!
          date = arguments!!.getString("date")!!
 
+
+
     }
 
     override fun onResume() {
         super.onResume()
         callApiforchecksummery();
+
+            homeactivity!!.homeViewBind!!.tv_header_text!!.setText(homeactivity!!.resources.getString(R.string.checksummery))
     }
 
     private fun setsummeryitemadapter() {
@@ -84,7 +102,7 @@ class CheckSummeryFragment: Fragment() {
         summerryViewBind!!.recview_check_list!!.adapter=summeryListAdapter
     }
 
-    private fun callApiforchecksummery() {
+    public fun callApiforchecksummery() {
         val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(homeactivity!!,"Please Wait..",false)
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
@@ -104,9 +122,13 @@ class CheckSummeryFragment: Fragment() {
                 override fun onResponse(call: Call<CheckSummeryResponse>, response: Response<CheckSummeryResponse>) {
                     customProgress.hideProgress()
                     if (response.code()==200){
-                        summerryViewBind!!.tv_total_fault_count!!.text=resources.getString(R.string.total_fault)+"  "+ response.body()!!.faultCount.toString()
+                        summerryViewBind!!.tv_total_fault_count!!.text= response.body()!!.faultCount.toString()
                         listvalue=response!!.body()!!.row
                         setsummeryitemadapter()
+                        if (listvalue!!.size==0){
+                           // Alert.showalert(homeactivity!!,"No Summery Found")
+                            Toast.makeText(homeactivity!!,"No Summery Found",Toast.LENGTH_LONG).show()
+                        }
                         //summeryListAdapter!!.notifyDataSetChanged()
                     }else if (response.code()==401){
                         callApiforregeneratetoken()
@@ -129,6 +151,7 @@ class CheckSummeryFragment: Fragment() {
         val gson = Gson()
         val json = AppSheardPreference(homeactivity!!).getvalue_in_preference(PreferenceConstent.loginuser_data)
         userData = gson.fromJson<LoginUserDetailsModel>(json, LoginUserDetailsModel::class.java!!)
+        site_list=userData!!.site_list;
     }
 
     private fun callApiforregeneratetoken() {

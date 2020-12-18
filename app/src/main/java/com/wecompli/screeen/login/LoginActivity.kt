@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         val view = LayoutInflater.from(this).inflate(R.layout.activity_login, null)
         setContentView(view)
         loginViewBind = LoginViewBind(view, this)
-        loginOnClick = LoginOnClick(loginViewBind, this)
+        loginOnClick =  LoginOnClick(loginViewBind, this)
         setversionnumber()
         setusernameandpasswordifchecked()
         setselctedlanguage()

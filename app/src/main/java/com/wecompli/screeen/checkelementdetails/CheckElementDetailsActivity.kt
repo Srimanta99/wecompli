@@ -8,7 +8,6 @@ import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +33,7 @@ import com.wecompli.screeen.checkminorfail.CheckMinorfailActivity
 import com.wecompli.screeen.checktaptosign.CheckTapToSignActivity
 import com.wecompli.screeen.checkteaprature.CheckTempuratureActivity
 import com.wecompli.utils.ApplicationConstant
+import com.wecompli.utils.DividerItemDecoration
 import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.customalert.CameraImageShowDialog
 import com.wecompli.utils.sheardpreference.AppSheardPreference
@@ -46,7 +46,10 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.*
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.IOException
+import java.io.Serializable
 
 
 class CheckElementDetailsActivity: AppCompatActivity() {
@@ -65,11 +68,14 @@ class CheckElementDetailsActivity: AppCompatActivity() {
      var selectedposition:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val view:View=LayoutInflater.from(this).inflate(R.layout.activity_check_element_details,null)
+        val view:View=LayoutInflater.from(this).inflate(R.layout.activity_check_element_details, null)
         setContentView(view)
 
-        checkElementDetatDetailsViewBind= CheckElementDetatDetailsViewBind(this,view)
-        checkElementDetailsOnClick=CheckElementDetailsOnClick(this,checkElementDetatDetailsViewBind!!)
+        checkElementDetatDetailsViewBind= CheckElementDetatDetailsViewBind(this, view)
+        checkElementDetailsOnClick=CheckElementDetailsOnClick(
+            this,
+            checkElementDetatDetailsViewBind!!
+        )
         val intent=intent
         checkcomponent=intent.getStringExtra("componet")
         checkdate=intent.getStringExtra("date")
@@ -97,7 +103,10 @@ class CheckElementDetailsActivity: AppCompatActivity() {
             rowlist.removeAt(selectedposition)
             elementDetailsAdapter!!.notifyDataSetChanged()
             if(rowlist.size==0)
-                Alert.showalertforallchecksubmit(this@CheckElementDetailsActivity,"All Checks Done.")
+                Alert.showalertforallchecksubmit(
+                    this@CheckElementDetailsActivity,
+                    "All Checks Done."
+                )
 
             //setupAdapter()
         } else if (result != null) run {
@@ -109,10 +118,10 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                // Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show()
                 //println("Scanned: " + result.getContents())
                 val separated = result.getContents().split("_")
-                if (elementdetailsrow!!.id.equals(separated.get(separated.size-1)))
+                if (elementdetailsrow!!.id.equals(separated.get(separated.size - 1)))
                 callApiforsubmitScan(result.getContents())
                 else
-                    Alert.showalert(this,"QR Code doesn't match. Try another")
+                    Alert.showalert(this, "QR Code doesn't match. Try another")
             }
         }
     }
@@ -152,12 +161,17 @@ class CheckElementDetailsActivity: AppCompatActivity() {
         } catch (e: IOException) {
             e.printStackTrace()
         }*/
-       CameraImageShowDialog(this,elementdetailsrow, thumbnail!!).show()
+       CameraImageShowDialog(this, elementdetailsrow, thumbnail!!).show()
     }
     fun getImageUri(inContext: Context, inImage: Bitmap): Uri {
         val bytes = ByteArrayOutputStream()
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val path: String = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null)
+        val path: String = MediaStore.Images.Media.insertImage(
+            inContext.getContentResolver(),
+            inImage,
+            "Title",
+            null
+        )
         return Uri.parse(path)
     }
     fun getRealPathFromURI(uri: Uri?): String? {
@@ -177,7 +191,7 @@ class CheckElementDetailsActivity: AppCompatActivity() {
     private fun callApiforelementdetails(selectedSiteSessionForCheck: SelectedSiteSessionForCheck) {
 
         val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
-        customProgress.showProgress(this,"Please Wait..",false)
+        customProgress.showProgress(this, "Please Wait..", false)
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
@@ -189,22 +203,32 @@ class CheckElementDetailsActivity: AppCompatActivity() {
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val callApi=apiInterface.callcomponetChecklelementdetails( AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.loginuser_token),selectedSiteSessionForCheck.selected_site, gsonObject!!)
-            callApi.enqueue(object : Callback<CheckElementDetailsResponse>{
-                override fun onResponse(call: Call<CheckElementDetailsResponse>, response: Response<CheckElementDetailsResponse>) {
+            val callApi=apiInterface.callcomponetChecklelementdetails(
+                AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.loginuser_token
+                ), selectedSiteSessionForCheck.selected_site, gsonObject!!
+            )
+            callApi.enqueue(object : Callback<CheckElementDetailsResponse> {
+                override fun onResponse(
+                    call: Call<CheckElementDetailsResponse>,
+                    response: Response<CheckElementDetailsResponse>
+                ) {
                     customProgress.hideProgress()
-                    if (response.code()==200){
+                    if (response.code() == 200) {
                         rowlist.clear()
-                       // rowlist= response.body()!!.elementrow!!
-                        for ( i in  0 until response.body()!!.elementrow!!.size){
-                            var elementDetailsRow:ElementDetailsRow=response.body()!!.elementrow!!.get(i)
+                        // rowlist= response.body()!!.elementrow!!
+                        for (i in 0 until response.body()!!.elementrow!!.size) {
+                            var elementDetailsRow: ElementDetailsRow =
+                                response.body()!!.elementrow!!.get(
+                                    i
+                                )
                             rowlist!!.add(elementDetailsRow)
                         }
-                       // setupAdapter()
-                       elementDetailsAdapter!!.notifyDataSetChanged()
+                        // setupAdapter()
+                        elementDetailsAdapter!!.notifyDataSetChanged()
 
 
-                    }else if (response.code()==401){
+                    } else if (response.code() == 401) {
 
                     }
                 }
@@ -216,7 +240,7 @@ class CheckElementDetailsActivity: AppCompatActivity() {
             })
 
 
-        }catch (e:Exception){
+        }catch (e: Exception){
             e.printStackTrace()
             customProgress.hideProgress()
 
@@ -226,10 +250,14 @@ class CheckElementDetailsActivity: AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-        elementDetailsAdapter= CheckElementDetailsAdapter(this,rowlist!!)
+        elementDetailsAdapter= CheckElementDetailsAdapter(this, rowlist!!)
         val layoutmanager=LinearLayoutManager(this)
         layoutmanager.orientation=LinearLayoutManager.VERTICAL
         checkElementDetatDetailsViewBind!!.recview_checkdetails.layoutManager=layoutmanager
+        val dividerItemDecoration = DividerItemDecoration(
+            checkElementDetatDetailsViewBind!!.recview_checkdetails.getContext(),
+            R.drawable.item_divider)
+        checkElementDetatDetailsViewBind!!.recview_checkdetails.addItemDecoration(dividerItemDecoration)
         checkElementDetatDetailsViewBind!!.recview_checkdetails.adapter=elementDetailsAdapter
     }
 
@@ -283,28 +311,45 @@ class CheckElementDetailsActivity: AppCompatActivity() {
         val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(this, "Please Wait..", false)
         val builder = MultipartBody.Builder().setType(MultipartBody.FORM)
-        builder.addFormDataPart("check_id" ,elementdetailsrow!!.id)
+        builder.addFormDataPart("check_id", elementdetailsrow!!.id)
         builder.addFormDataPart("season_id", selectedSiteSessionForCheck!!.selected_session)
         builder.addFormDataPart("check_type_id", elementdetailsrow!!.checkTypeId)
-        builder.addFormDataPart("check_type_values_id",elementdetailsrow!!.checkTypeValue!!.get(0).id)
-        builder.addFormDataPart("check_process_type" ,PreferenceConstent.category_purpose)
+        builder.addFormDataPart(
+            "check_type_values_id",
+            elementdetailsrow!!.checkTypeValue!!.get(0).id
+        )
+        builder.addFormDataPart("check_process_type", PreferenceConstent.category_purpose)
         builder.addFormDataPart("check_date", selectedSiteSessionForCheck!!.checkdate)
         builder.addFormDataPart("process_remark", "")
-        builder.addFormDataPart("process_status",PreferenceConstent.process_status)
-        builder.addFormDataPart("checks_process_log_entry_date",AppSheardPreference(this!!).getvalue_in_preference(PreferenceConstent.chk_selectiondate))
-        builder.addFormDataPart("process_file[]", destination.name, okhttp3.RequestBody.create(MediaType.parse("image/jpeg"), destination))
+        builder.addFormDataPart("process_status", PreferenceConstent.process_status)
+        builder.addFormDataPart(
+            "checks_process_log_entry_date", AppSheardPreference(this!!).getvalue_in_preference(
+                PreferenceConstent.chk_selectiondate
+            )
+        )
+        builder.addFormDataPart(
+            "process_file[]", destination.name, okhttp3.RequestBody.create(
+                MediaType.parse(
+                    "image/jpeg"
+                ), destination
+            )
+        )
         val requestBody = builder.build()
         var request: Request? = null
         request = Request.Builder()
-            .addHeader("Authorization", AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.loginuser_token))
-            .addHeader("site_id",sideid)
-            .addHeader("Content-Type","application/json")
+            .addHeader(
+                "Authorization", AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.loginuser_token
+                )
+            )
+            .addHeader("site_id", sideid)
+            .addHeader("Content-Type", "application/json")
             .url(NetworkUtility.BASE_URL + NetworkUtility.COMPONENET_CHECK_SUBMIT)
             .post(requestBody)
             .build()
         val client = okhttp3.OkHttpClient.Builder().build()
         val call = client.newCall(request)
-        call.enqueue(object :okhttp3.Callback{
+        call.enqueue(object : okhttp3.Callback {
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 customProgress.hideProgress()
                 if (response.isSuccessful) {
@@ -313,15 +358,18 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                             callApiforelementdetails(selectedSiteSessionForCheck!!)
                         }
 
-                       /* rowlist.removeAt(selectedposition)
+                        /* rowlist.removeAt(selectedposition)
                         elementDetailsAdapter!!.notifyDataSetChanged()
                         if(rowlist.size==0)
                             Alert.showalertforallchecksubmit(this@CheckElementDetailsActivity,"All Checks Done.")
                       */ // setupAdapter()
                     }
-                }
-                else
-                    Toast.makeText(this@CheckElementDetailsActivity, "Try later. Something Wrong.", Toast.LENGTH_LONG).show()
+                } else
+                    Toast.makeText(
+                        this@CheckElementDetailsActivity,
+                        "Try later. Something Wrong.",
+                        Toast.LENGTH_LONG
+                    ).show()
 
             }
 
@@ -342,15 +390,22 @@ class CheckElementDetailsActivity: AppCompatActivity() {
             paramObject.put("check_type_id", elementdetailsrow!!.checkTypeId)
             paramObject.put("check_type_values_id", elementdetailsrow!!.checkTypeValue!!.get(0).id)
             paramObject.put("check_process_type", PreferenceConstent.category_purpose)
-            paramObject.put("check_date",selectedSiteSessionForCheck!!.checkdate)
-            paramObject.put("process_remark",contents)
-            paramObject.put("process_status",PreferenceConstent.process_status)
+            paramObject.put("check_date", selectedSiteSessionForCheck!!.checkdate)
+            paramObject.put("process_remark", contents)
+            paramObject.put("process_status", PreferenceConstent.process_status)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val callApi= apiInterface.callcomponetCheckSubmit(AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.loginuser_token),selectedSiteSessionForCheck!!.selected_site, gsonObject!!)
-            callApi.enqueue(object :Callback<ResponseBody>{
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            val callApi= apiInterface.callcomponetCheckSubmit(
+                AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.loginuser_token
+                ), selectedSiteSessionForCheck!!.selected_site, gsonObject!!
+            )
+            callApi.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.code() == 200) {
@@ -361,21 +416,29 @@ class CheckElementDetailsActivity: AppCompatActivity() {
 
                             // elementDetailsAdapter!!.notifyDataSetChanged()
                         }
-                    }
-                    else
-                        Toast.makeText(this@CheckElementDetailsActivity, "Try later. Something Wrong.", Toast.LENGTH_LONG).show()
+                    } else
+                        Toast.makeText(
+                            this@CheckElementDetailsActivity,
+                            "Try later. Something Wrong.",
+                            Toast.LENGTH_LONG
+                        ).show()
                 }
+
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     customProgress.hideProgress()
                 }
             })
 
-        }catch (e:Exception){
+        }catch (e: Exception){
             e.printStackTrace()
         }
 
     }
-    fun callApiforsubmitcheck(elementDetailsRow: ElementDetailsRow, position: Int, listposition: Int) {
+    fun callApiforsubmitcheck(
+        elementDetailsRow: ElementDetailsRow,
+        position: Int,
+        listposition: Int
+    ) {
         //Toast.makeText(this, elementDetailsRow.checkTypeValue!!.get(position).value, Toast.LENGTH_LONG).show()
         val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(this, "Please Wait..", false)
@@ -385,38 +448,55 @@ class CheckElementDetailsActivity: AppCompatActivity() {
             paramObject.put("check_id", elementDetailsRow.id)
             paramObject.put("season_id", selectedSiteSessionForCheck!!.selected_session)
             paramObject.put("check_type_id", elementDetailsRow.checkTypeId)
-            paramObject.put("check_type_values_id", elementDetailsRow.checkTypeValue!!.get(position).id)
+            paramObject.put(
+                "check_type_values_id",
+                elementDetailsRow.checkTypeValue!!.get(position).id
+            )
             paramObject.put("check_process_type", PreferenceConstent.category_purpose)
-            paramObject.put("check_date",selectedSiteSessionForCheck!!.checkdate)
-            paramObject.put("process_remark","Fault ")
-            paramObject.put("process_status",PreferenceConstent.process_status)
+            paramObject.put("check_date", selectedSiteSessionForCheck!!.checkdate)
+            paramObject.put("process_remark", "Fault ")
+            paramObject.put("process_status", PreferenceConstent.process_status)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val callApi= apiInterface.callcomponetCheckSubmit(AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.loginuser_token),selectedSiteSessionForCheck!!.selected_site, gsonObject!!)
-            callApi.enqueue(object :Callback<ResponseBody>{
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            val callApi= apiInterface.callcomponetCheckSubmit(
+                AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.loginuser_token
+                ), selectedSiteSessionForCheck!!.selected_site, gsonObject!!
+            )
+            callApi.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.code() == 200) {
                             rowlist!!.removeAt(listposition)
                             // setupAdapter()
-                             //elementDetailsAdapter!!.notifyItemRemoved(listposition)
+                            //elementDetailsAdapter!!.notifyItemRemoved(listposition)
                             //callApiforelementdetails(selectedSiteSessionForCheck!!)
-                             elementDetailsAdapter!!.notifyDataSetChanged()
-                            if(rowlist.size==0)
-                                Alert.showalertforallchecksubmit(this@CheckElementDetailsActivity,"All Checks Done.")
+                            elementDetailsAdapter!!.notifyDataSetChanged()
+                            if (rowlist.size == 0)
+                                Alert.showalertforallchecksubmit(
+                                    this@CheckElementDetailsActivity,
+                                    "All Checks Done."
+                                )
                         }
-                    }
-                    else
-                        Toast.makeText(this@CheckElementDetailsActivity, "Try later. Something Wrong.", Toast.LENGTH_LONG).show()
+                    } else
+                        Toast.makeText(
+                            this@CheckElementDetailsActivity,
+                            "Try later. Something Wrong.",
+                            Toast.LENGTH_LONG
+                        ).show()
                 }
+
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     customProgress.hideProgress()
                 }
             })
 
-        }catch (e:Exception){
+        }catch (e: Exception){
             e.printStackTrace()
         }
 
@@ -434,51 +514,55 @@ class CheckElementDetailsActivity: AppCompatActivity() {
 
     fun openInputNote(elementdetailsrow: ElementDetailsRow, position: Int) {
         selectedposition=position
-        val intent=Intent(this,CheckInputNoteActivity::class.java)
-        intent.putExtra("elementdetails",elementdetailsrow as Serializable)
-        intent.putExtra("componet",checkcomponent)
-        intent.putExtra("date",checkdate)
-        intent.putExtra("sideid",sideid)
-        intent.putExtra("session",selectedSiteSessionForCheck!!.selected_session)
-        intent.putExtra("selectedcategory",selectedSiteSessionForCheck!!.selectedcategoryname)
-        this.startActivityForResult(intent,ApplicationConstant.INTENT_CHECKCOMPONENT)
+        val intent=Intent(this, CheckInputNoteActivity::class.java)
+        intent.putExtra("elementdetails", elementdetailsrow as Serializable)
+        intent.putExtra("componet", checkcomponent)
+        intent.putExtra("date", checkdate)
+        intent.putExtra("sideid", sideid)
+        intent.putExtra("session", selectedSiteSessionForCheck!!.selected_session)
+        intent.putExtra("selectedcategory", selectedSiteSessionForCheck!!.selectedcategoryname)
+        this.startActivityForResult(intent, ApplicationConstant.INTENT_CHECKCOMPONENT)
         
 
     }
 
     fun openTempture(elementdetailsrow: ElementDetailsRow, position: Int) {
         selectedposition=position
-        val intent=Intent(this,CheckTempuratureActivity::class.java)
-        intent.putExtra("componet",checkcomponent)
-        intent.putExtra("date",checkdate)
-        intent.putExtra("sideid",sideid)
-        intent.putExtra("session",selectedSiteSessionForCheck!!.selected_session)
-        intent.putExtra("elementdetails",elementdetailsrow as Serializable)
-        intent.putExtra("selectedcategory",selectedSiteSessionForCheck!!.selectedcategoryname)
-        this.startActivityForResult(intent,ApplicationConstant.INTENT_CHECKCOMPONENT)
+        val intent=Intent(this, CheckTempuratureActivity::class.java)
+        intent.putExtra("componet", checkcomponent)
+        intent.putExtra("date", checkdate)
+        intent.putExtra("sideid", sideid)
+        intent.putExtra("session", selectedSiteSessionForCheck!!.selected_session)
+        intent.putExtra("elementdetails", elementdetailsrow as Serializable)
+        intent.putExtra("selectedcategory", selectedSiteSessionForCheck!!.selectedcategoryname)
+        this.startActivityForResult(intent, ApplicationConstant.INTENT_CHECKCOMPONENT)
 
     }
 
     fun openTapToSign(elementdetailsrow: ElementDetailsRow, position: Int) {
         selectedposition=position
-        val intent=Intent(this,CheckTapToSignActivity::class.java)
-        intent.putExtra("elementdetails",elementdetailsrow as Serializable)
-        intent.putExtra("componet",checkcomponent)
-        intent.putExtra("date",checkdate)
-        intent.putExtra("sideid",sideid)
-        intent.putExtra("session",selectedSiteSessionForCheck!!.selected_session)
-        this.startActivityForResult(intent,ApplicationConstant.INTENT_CHECKCOMPONENT)
+        val intent=Intent(this, CheckTapToSignActivity::class.java)
+        intent.putExtra("elementdetails", elementdetailsrow as Serializable)
+        intent.putExtra("componet", checkcomponent)
+        intent.putExtra("date", checkdate)
+        intent.putExtra("sideid", sideid)
+        intent.putExtra("session", selectedSiteSessionForCheck!!.selected_session)
+        this.startActivityForResult(intent, ApplicationConstant.INTENT_CHECKCOMPONENT)
     }
 
-    fun openfailandMinorFail(elementdetailsrow: ElementDetailsRow, position: Int, positioninlist: Int){
+    fun openfailandMinorFail(
+        elementdetailsrow: ElementDetailsRow,
+        position: Int,
+        positioninlist: Int
+    ){
         selectedposition=positioninlist
-        val intent=Intent(this,CheckMinorfailActivity::class.java)
-        intent.putExtra("elementdetails",elementdetailsrow as Serializable)
-        intent.putExtra("componet",checkcomponent)
-        intent.putExtra("date",checkdate)
-        intent.putExtra("sideid",sideid)
-        intent.putExtra("session",selectedSiteSessionForCheck!!.selected_session)
-        this.startActivityForResult(intent,ApplicationConstant.INTENT_CHECKCOMPONENT)
+        val intent=Intent(this, CheckMinorfailActivity::class.java)
+        intent.putExtra("elementdetails", elementdetailsrow as Serializable)
+        intent.putExtra("componet", checkcomponent)
+        intent.putExtra("date", checkdate)
+        intent.putExtra("sideid", sideid)
+        intent.putExtra("session", selectedSiteSessionForCheck!!.selected_session)
+        this.startActivityForResult(intent, ApplicationConstant.INTENT_CHECKCOMPONENT)
     }
 
     public fun opeenCamera(elementdetailsrowdeta: ElementDetailsRow, position: Int) {
@@ -491,13 +575,23 @@ class CheckElementDetailsActivity: AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !== PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !== PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !== PackageManager.PERMISSION_GRANTED ) {
-            ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 0)
+            ActivityCompat.requestPermissions(
+                this, arrayOf<String>(
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ), 0
+            )
         } else {
             opencamera()
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         if (requestCode == 0) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 && grantResults[1] == PackageManager.PERMISSION_GRANTED

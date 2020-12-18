@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/logintopbg"
    >
 
     <RelativeLayout
         android:id="@+id/rl_top_taskdetails"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="@drawable/rectangular_shape_blue">
+        android:layout_height="@dimen/_50sdp">
 
         <RelativeLayout
             android:id="@+id/rl_back_taskdetails"
@@ -36,13 +36,17 @@
             android:textSize="@dimen/_16sdp" />
 
     </RelativeLayout>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_white_top_two_rounded_corner"
+    android:layout_below="@+id/rl_top_taskdetails">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:scrollbars="none"
-        android:layout_below="@+id/rl_top_taskdetails">
+      >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -321,6 +325,10 @@
                     android:background="@drawable/rectangular_shape_thin_round_gery_broder"/>
 
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/transparept_grey"></TextView>
             <LinearLayout
                 android:id="@+id/rl_bottom1"
                 android:layout_width="match_parent"
@@ -337,7 +345,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/_10sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/rectangular_shape_blue_rounded_corner">
+                    android:background="@drawable/gradient_login_button">
                     <TextView
                         android:id="@+id/tv_submit"
                         android:layout_width="match_parent"
@@ -356,7 +364,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/rectangle_red_rounded_corner_">
+                    android:background="@drawable/gradient_red_button">
 
                     <TextView
                         android:id="@+id/tv_notifytask"
@@ -528,13 +536,22 @@
         </LinearLayout>
     -->
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/text_color_check"></TextView>
 
     <LinearLayout
         android:id="@+id/rl_bottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/bottom_header_color"
+
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -546,7 +563,7 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_weight="1"
-            android:background="@drawable/rectangle_red_rounded_corner_">
+            android:background="@drawable/gradient_red_button">
 
             <TextView
                 android:id="@+id/tv_fixfault"
@@ -567,7 +584,7 @@
               android:layout_weight="1"
               android:layout_margin="@dimen/_10sdp"
 
-              android:background="@drawable/rectangle_red_rounded_corner_">
+              android:background="@drawable/gradient_red_button">
 
               <TextView
                   android:id="@+id/tv_closedfault"
@@ -582,4 +599,6 @@
 
           </RelativeLayout>
     </LinearLayout>
+</LinearLayout>
+</RelativeLayout>
 </RelativeLayout>

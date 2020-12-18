@@ -2,11 +2,13 @@ package com.wecompli.screeen.login
 
 import android.content.Intent
 import android.graphics.Color
+import android.text.method.PasswordTransformationMethod
+import android.text.method.SingleLineTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.PopupWindow
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -21,13 +23,11 @@ import com.wecompli.network.ApiInterface
 import com.wecompli.network.Retrofit
 import com.wecompli.screeen.forgotpassword.ForGotPasswordActivity
 import com.wecompli.screeen.home.HomeActivity
-import com.wecompli.screeen.intropages.InterPagesActivity
 import com.wecompli.screeen.login.adapter.LanguageAdapter
 import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
 import com.wecompli.utils.sheardpreference.AppSheardPreference
 import com.wecompli.utils.sheardpreference.PreferenceConstent
-import kotlinx.android.synthetic.main.activity_login.view.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,6 +41,7 @@ class LoginOnClick:View.OnClickListener {
     constructor( loginViewBind: LoginViewBind, loginAcitytiv: LoginActivity){
         this.loginViewBind=loginViewBind
         this.loginActivity=loginAcitytiv
+
         setonclicklistner()
     }
 
@@ -48,11 +49,13 @@ class LoginOnClick:View.OnClickListener {
         loginViewBind.btn_login.setOnClickListener(this)
         loginViewBind.chk_remember.setOnClickListener (this)
         loginViewBind.tv_forgotpassword.setOnClickListener(this)
-        loginViewBind.tv_language.setOnClickListener(this)
+        loginViewBind.et_pass.setOnClickListener(this)
+        loginViewBind.show_pass_btn!!.setOnClickListener(this)
+      //  loginViewBind.tv_language.setOnClickListener(this)
     }
 
-    override fun onClick(p0: View?) {
-        when(p0!!.id){
+    override fun onClick(view: View?) {
+        when(view!!.id){
             R.id.btn_login->{
                 if(checkblank()){
                   saveusernameandpassword()
@@ -66,9 +69,23 @@ class LoginOnClick:View.OnClickListener {
                 val forgotintent=Intent(loginActivity,ForGotPasswordActivity::class.java)
                 loginActivity.startActivity(forgotintent!!)
             }
-            R.id.tv_language->{
-                showlanguagedropdown()
+            R.id.show_pass_btn->{
+                if (loginViewBind.et_pass.getTransformationMethod().javaClass.getSimpleName().equals("PasswordTransformationMethod")) {
+                    loginViewBind.show_pass_btn!!.setImageResource(R.drawable.hide1);
+                    // loginViewBind.et_pass.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_show_hide, 0, 0, 0);
+                    loginViewBind.et_pass.setTransformationMethod(SingleLineTransformationMethod())
+                } else {
+                    loginViewBind.show_pass_btn!!.setImageResource(R.drawable.password_show_hide);
+
+
+                   // loginViewBind.et_pass.setCompoundDrawablesWithIntrinsicBounds(R.drawable.hide, 0, 0, 0);
+                    loginViewBind.et_pass.setTransformationMethod(PasswordTransformationMethod())
+                }
+                loginViewBind.et_pass.setSelection(loginViewBind.et_pass.text.length)
             }
+            /*R.id.tv_language->{
+                showlanguagedropdown()
+            }*/
 
         }
 
@@ -176,7 +193,7 @@ class LoginOnClick:View.OnClickListener {
                 }
             })
         val popupview = LayoutInflater.from(loginActivity).inflate(R.layout.languagepopup_layout, null)
-        val popupWindow = PopupWindow(popupview, loginActivity.getResources().getDimension(R.dimen._93sdp).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT, true)
+        val popupWindow = PopupWindow(popupview, loginActivity.getResources().getDimension(R.dimen._100sdp).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT, true)
         val recyclerView_language:RecyclerView= popupview!!.findViewById(R.id.rec_languagelist)
         val layoutManager = LinearLayoutManager(loginActivity)
         recyclerView_language.setLayoutManager(layoutManager)

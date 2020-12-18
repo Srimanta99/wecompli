@@ -1,41 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:orientation="vertical"
+    android:background="@drawable/rectangle_white_top_two_rounded_corner"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/rltopchecksummery"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:id="@+id/btnedit"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/edit_button_check_hover"></Button>
+
+        <TextView
+            android:id="@+id/tvComayselected"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:text="Company :"
+            android:textColor="#7c889d"
+            android:textSize="@dimen/_12sdp"></TextView>
+        <TextView
+            android:id="@+id/tvComayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/login_bg_header"
+            android:textSize="@dimen/_14sdp"
+            android:layout_toRightOf="@+id/tvComayselected"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/tvsiteselected"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvComayName"
+            android:padding="@dimen/_8sdp"
+            android:text="Site :"
+            android:textColor="#7c889d"
+            android:textSize="@dimen/_12sdp"></TextView>
+        <TextView
+            android:id="@+id/tvsiteName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp"
+            android:layout_below="@+id/tvComayName"
+            android:layout_toRightOf="@+id/tvsiteselected"
+            android:textColor="@color/login_bg_header"
+            android:text=""></TextView>
+        <TextView
+            android:id="@+id/tvdate"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_below="@+id/tvsiteName"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#7c889d"
+            android:text="Date :"></TextView>
+        <TextView
+            android:id="@+id/tvdateval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_below="@+id/tvsiteName"
+            android:textColor="@color/login_bg_header"
+            android:textSize="@dimen/_14sdp"
+            android:layout_toRightOf="@+id/tvsiteselected"
+            android:text=""></TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/rectangular_grey_shape_top_rounded_corner">
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recview_check_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_5sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginBottom="@dimen/_62sdp">
+
+        android:layout_marginBottom="@dimen/_80sdp">
 
     </androidx.recyclerview.widget.RecyclerView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_17sdp"
+            android:background="@drawable/gradient_login_button">
+            <TextView
+                android:id="@+id/tv_total_fault"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:text="@string/total_fault"
+                android:gravity="center"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_60sdp"
+                android:textColor="@color/white"
+                ></TextView>
+            <TextView
+                android:id="@+id/tv_total_fault_count"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/tabtext_color"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:layout_toRightOf="@+id/tv_total_fault"
+                android:background="@drawable/circle_white"></TextView>
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imgbb"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/bottom_header_color"></ImageView>
 
-    <TextView
-        android:id="@+id/tv_total_fault_count"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:text="@string/total_fault"
-        android:gravity="center"
-        android:textSize="@dimen/_14sdp"
-        android:textColor="@color/white"
-        android:background="@drawable/rectangula_red_rounded_corner_"></TextView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</LinearLayout>

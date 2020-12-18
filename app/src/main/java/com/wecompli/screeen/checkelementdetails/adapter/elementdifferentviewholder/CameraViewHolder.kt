@@ -17,11 +17,11 @@ class CameraViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     val btn_camera: Button =itemView.findViewById(R.id.btn_camera)
     val ll_bgcamera: LinearLayout =itemView.findViewById(R.id.ll_bgcamera)
     fun Bindview(elementdetailsrow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int) {
-        if (position%2==0)
+      /*  if (position%2==0)
             ll_bgcamera.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
         else
             ll_bgcamera.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
-
+*/
         val deviceResolution= DeviceResolution(checkElementDetailsActivity)
         tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)
         tv_checkdescription.typeface=deviceResolution.getgothmlight(checkElementDetailsActivity)

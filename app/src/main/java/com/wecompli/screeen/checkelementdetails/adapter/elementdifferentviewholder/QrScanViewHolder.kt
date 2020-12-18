@@ -13,10 +13,10 @@ import com.wecompli.screeen.checkelementdetails.CheckElementDetailsActivity
 
 class QrScanViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     fun Bindview(elementdetailsrow: ElementDetailsRow, checkElementDetailsActivity: CheckElementDetailsActivity, position: Int) {
-            if (position%2==0)
+            /*if (position%2==0)
                 ll_bgqrcode.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.item_sell_1))
             else
-                ll_bgqrcode.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))
+                ll_bgqrcode.setBackgroundColor(checkElementDetailsActivity.getResources().getColor(R.color.white))*/
 
             val deviceResolution= DeviceResolution(checkElementDetailsActivity)
             tv_checname.typeface=deviceResolution.getbebas(checkElementDetailsActivity)

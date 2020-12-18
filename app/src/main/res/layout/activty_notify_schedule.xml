@@ -2,12 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_bg">
+    android:background="@drawable/logintopbg">
     <RelativeLayout
         android:id="@+id/rl_top_task"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="@drawable/rectangular_shape_blue">
+        android:layout_height="@dimen/_50sdp">
 
         <RelativeLayout
             android:id="@+id/rl_back_notifyschedule"
@@ -44,13 +43,20 @@
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_top_task"
+        android:background="@drawable/rectangle_white_top_two_rounded_corner">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_notifyschedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_top_task"
+       android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
         android:layout_above="@+id/rl_bottom"
         android:layout_marginTop="@dimen/_10sdp">
 
     </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
 </RelativeLayout>
