@@ -173,8 +173,7 @@ class HomeActivity:AppCompatActivity(){
      }
 
         builder.setNegativeButton(
-            resources.getString(R.string.cancel),
-            object : DialogInterface.OnClickListener {
+            resources.getString(R.string.cancel), object : DialogInterface.OnClickListener {
                 override fun onClick(dialog: DialogInterface, which: Int) {
                     dialog.dismiss()
                 }
@@ -257,11 +256,7 @@ class HomeActivity:AppCompatActivity(){
         imageLoader.init(ImageLoaderConfiguration.createDefault(this))
         imageLoader.loadImage(userData!!.user_profile_picture_path, options,
             object : SimpleImageLoadingListener() {
-                override fun onLoadingComplete(
-                    imageUri: String?,
-                    view: View?,
-                    loadedImage: Bitmap?
-                ) {
+                override fun onLoadingComplete(imageUri: String?, view: View?, loadedImage: Bitmap?) {
                     homeViewBind!!.cirecularimageview!!.setImageBitmap(loadedImage)
                 }
             })
