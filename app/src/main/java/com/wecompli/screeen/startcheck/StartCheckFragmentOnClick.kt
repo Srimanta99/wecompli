@@ -249,7 +249,6 @@ class StartCheckFragmentOnClick: View.OnClickListener{
     private fun showcomponentValue(value: String) {
         val deviceResolution = DeviceResolution(activity)
         val lparams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, activity!!.getResources().getDimension(R.dimen._37sdp).toInt())
-
         val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, activity!!.getResources().getDimension(R.dimen._37sdp).toInt())
         params.setMargins(10, activity!!.getResources().getDimension(R.dimen._12sdp).toInt(), 10, 10)
         val tv = TextView(activity)

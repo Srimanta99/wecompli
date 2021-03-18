@@ -218,10 +218,7 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                         rowlist.clear()
                         // rowlist= response.body()!!.elementrow!!
                         for (i in 0 until response.body()!!.elementrow!!.size) {
-                            var elementDetailsRow: ElementDetailsRow =
-                                response.body()!!.elementrow!!.get(
-                                    i
-                                )
+                            var elementDetailsRow: ElementDetailsRow = response.body()!!.elementrow!!.get(i)
                             rowlist!!.add(elementDetailsRow)
                         }
                         // setupAdapter()
@@ -465,10 +462,7 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                 ), selectedSiteSessionForCheck!!.selected_site, gsonObject!!
             )
             callApi.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
-                ) {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.code() == 200) {
@@ -484,11 +478,7 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                                 )
                         }
                     } else
-                        Toast.makeText(
-                            this@CheckElementDetailsActivity,
-                            "Try later. Something Wrong.",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(this@CheckElementDetailsActivity, "Try later. Something Wrong.", Toast.LENGTH_LONG).show()
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {

@@ -1,20 +1,23 @@
 package com.wecompli.screeen.totalfault.adapter
 
 import android.graphics.Typeface
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.rts.commonutils_2_0.deviceinfo.DeviceResolution
-import com.wecompli.R
-import com.wecompli.screeen.totalfault.TotalFaultActivity
-import android.text.SpannableStringBuilder
-import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.rts.commonutils_2_0.deviceinfo.DeviceResolution
+import com.wecompli.R
 import com.wecompli.apiresponsemodel.faultapi.CheckRow
+import com.wecompli.screeen.totalfault.TotalFaultActivity
 import com.wecompli.utils.customalert.Alert
 import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
 
@@ -22,10 +25,15 @@ import com.wecompli.utils.onitemclickinterface.OnItemClickInterface
 class TotalfaultAdapter(
     val totalFaultActivity: TotalFaultActivity,
     val falultrow: List<CheckRow>,
-    val onItemClickInterface: OnItemClickInterface) : RecyclerView.Adapter<TotalfaultAdapter.ViewHolder>() {
+    val onItemClickInterface: OnItemClickInterface
+) : RecyclerView.Adapter<TotalfaultAdapter.ViewHolder>() {
     var  deviceResolution:DeviceResolution?=null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view:View=LayoutInflater.from(totalFaultActivity).inflate(R.layout.total_fault_item_layout,parent,false)
+        val view:View=LayoutInflater.from(totalFaultActivity).inflate(
+            R.layout.total_fault_item_layout,
+            parent,
+            false
+        )
         deviceResolution= DeviceResolution(totalFaultActivity)
         return ViewHolder(view)
     }
@@ -33,9 +41,15 @@ class TotalfaultAdapter(
     override fun getItemCount(): Int {
         return falultrow.size
     }
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+         val row: CheckRow=falultrow.get(position)
         holder.tv_faultname.typeface=deviceResolution!!.getgothmbold(totalFaultActivity)
         holder.tv_dateval.typeface=deviceResolution!!.getgothmlight(totalFaultActivity)
         holder.tvdate.typeface=deviceResolution!!.getgothmbold(totalFaultActivity)
@@ -51,14 +65,14 @@ class TotalfaultAdapter(
 
         val firstWord = totalFaultActivity.resources.getString(R.string.Details)
         val secondWord = falultrow.get(position).checkNote
-        val SS = SpannableStringBuilder(firstWord+": "+ secondWord)
+        val SS = SpannableStringBuilder(firstWord + ": " + secondWord)
      //   SS.setSpan(CustomTypefaceSpan("", front1), 0, firstWord.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
      //   SS.setSpan(CustomTypefaceSpan("", front2), firstWord.length+1, secondWord!!.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         holder.tvfaultdetails.setText(SS)
 
         val remark = totalFaultActivity.resources.getString(R.string.remark)
         val fault_description = falultrow.get(position).faultDescription
-        val remarks = SpannableStringBuilder(remark+": "+ fault_description)
+        val remarks = SpannableStringBuilder(remark + ": " + fault_description)
        // remarks.setSpan(CustomTypefaceSpan("", front1), 0, remark.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
 //        remarks.setSpan(CustomTypefaceSpan("", front2), remark.length+1, fault_description!!.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         holder.tv_remarks.setText(remarks)
@@ -100,13 +114,15 @@ class TotalfaultAdapter(
             holder.tvfaultdetails.visibility=View.VISIBLE
         }
 
-        if(falultrow.get(position).faultFiles!!.size>0){
-            for (i in 0 until falultrow.get(position).faultFiles!!.size){
-                if(i==0){
-
+        if(row.faultFiles!!.size>0){
+            val faultFiles:List<String>?=row.faultFiles
+            for (i in 0 until faultFiles!!.size){
+                if(faultFiles!!.size==1){
                     var requestOptions = RequestOptions()
                     requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
-                    Glide.with(totalFaultActivity).load(falultrow.get(position).faultFiles!![0]).apply(requestOptions).into(holder.img_fault1)
+                    Glide.with(totalFaultActivity).load(faultFiles[0]).apply(
+                        requestOptions
+                    ).into(holder.img_fault1)
                   /*  var chefBitmap: Bitmap =Glide.with(totalFaultActivity)
                         .asBitmap()
                         .load(falultrow.get(position).faultFiles!![0])
@@ -120,10 +136,19 @@ class TotalfaultAdapter(
                     })*/
 
                 }
-                else if(i==1){
+                else if(faultFiles!!.size==2){
+
                     var requestOptions = RequestOptions()
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+                    Glide.with(totalFaultActivity).load(faultFiles[0]).apply(
+                        requestOptions
+                    ).into(holder.img_fault1)
+
+
                     requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
-                    Glide.with(totalFaultActivity).load(falultrow.get(position).faultFiles!![1]).apply(requestOptions).into(holder.img_fault2)
+                    Glide.with(totalFaultActivity).load(faultFiles[1]).apply(
+                        requestOptions
+                    ).into(holder.img_fault2)
 
                     /* var chefBitmap: Bitmap =Glide.with(totalFaultActivity)
                          .asBitmap()
@@ -138,10 +163,24 @@ class TotalfaultAdapter(
                      })*/
                 }
 
-                else if(i==2){
+                else if(faultFiles!!.size==3){
                     var requestOptions = RequestOptions()
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+                    Glide.with(totalFaultActivity).load(faultFiles[0]).apply(
+                        requestOptions
+                    ).into(holder.img_fault1)
+
+
                     requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
-                    Glide.with(totalFaultActivity).load(falultrow.get(position).faultFiles!![2]).apply(requestOptions).into(holder.img_fault3)
+                    Glide.with(totalFaultActivity).load(faultFiles[1]).apply(
+                        requestOptions
+                    ).into(holder.img_fault2)
+
+
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
+                    Glide.with(totalFaultActivity).load(faultFiles[2]).apply(
+                        requestOptions
+                    ).into(holder.img_fault3)
 
                     /* var chefBitmap: Bitmap =Glide.with(totalFaultActivity)
                          .asBitmap()
@@ -156,10 +195,30 @@ class TotalfaultAdapter(
                      })*/
                 }
 
-                else if(i==3){
+                else if(faultFiles!!.size==4){
+
                     var requestOptions = RequestOptions()
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+                    Glide.with(totalFaultActivity).load(faultFiles[0]).apply(
+                        requestOptions
+                    ).into(holder.img_fault1)
+
+
                     requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
-                    Glide.with(totalFaultActivity).load(falultrow.get(position).faultFiles!![3]).apply(requestOptions).into(holder.img_fault4)
+                    Glide.with(totalFaultActivity).load(faultFiles[1]).apply(
+                        requestOptions
+                    ).into(holder.img_fault2)
+
+
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
+                    Glide.with(totalFaultActivity).load(faultFiles[2]).apply(
+                        requestOptions
+                    ).into(holder.img_fault3)
+
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(4))
+                    Glide.with(totalFaultActivity).load(faultFiles[3]).apply(
+                        requestOptions
+                    ).into(holder.img_fault4)
 
                     /*var chefBitmap: Bitmap =Glide.with(totalFaultActivity)
                         .asBitmap()
@@ -176,6 +235,35 @@ class TotalfaultAdapter(
 
 
             }
+        }else{
+            holder.setIsRecyclable(true);
+            holder.img_fault1.visibility=View.INVISIBLE
+            holder.img_fault2.visibility=View.INVISIBLE
+            holder.img_fault3.visibility=View.INVISIBLE
+            holder.img_fault4.visibility=View.INVISIBLE
+            /*var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+            Glide.with(totalFaultActivity).load("").apply(
+                requestOptions
+            ).into(holder.img_fault1)
+
+           // var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+            Glide.with(totalFaultActivity).load("").apply(
+                requestOptions
+            ).into(holder.img_fault2)
+
+            //var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+            Glide.with(totalFaultActivity).load("").apply(
+                requestOptions
+            ).into(holder.img_fault3)
+
+           // var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(5))
+            Glide.with(totalFaultActivity).load("").apply(
+                requestOptions
+            ).into(holder.img_fault4)*/
         }
 
 /*
@@ -198,7 +286,11 @@ class TotalfaultAdapter(
         holder.img_fault4.setImageDrawable(RBD1)
 */
         holder.imgfaultdelete.setOnClickListener {
-            Alert.showdeletefaultAlert(totalFaultActivity!! ,"Do you want to close this fault?",falultrow.get(position).id);
+            Alert.showdeletefaultAlert(
+                totalFaultActivity!!, "Do you want to close this fault?", falultrow.get(
+                    position
+                ).id
+            );
         }
 
         holder.ll_bodytext.setOnClickListener {
