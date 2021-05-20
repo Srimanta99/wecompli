@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -130,11 +131,19 @@ class AccidentReportActivity :AppCompatActivity(){
         accidentReportViewBind!!.tv_site!!.setText(AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.UserSite))
     }
     fun cretefileforsignbehalf(bitmap: Bitmap) {
+        val filename="/wecompli/incident_images"
         accidentReportViewBind!!.img_signbehlf!!.setDrawingCacheEnabled(true)
         val bmap = accidentReportViewBind!!.img_signbehlf!!.getDrawingCache()
-        val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/incident_images")
+       // val root = Environment.getExternalStorageDirectory().toString()
+       // val myDir = File("$root/wecompli/incident_images")
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
+
       /*  val generator = Random()
         var n = 10000
         n = generator.nextInt(n)*/
@@ -157,10 +166,18 @@ class AccidentReportActivity :AppCompatActivity(){
     }
 
     fun cretefileforwitness1sign(bitmap: Bitmap) {
+        val filename="/wecompli/incident_images"
         accidentReportViewBind!!.img_witeness1!!.isDrawingCacheEnabled = true
         val bmap = accidentReportViewBind!!.img_witeness1!!.drawingCache
-        val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/incident_images")
+       // val root = Environment.getExternalStorageDirectory().toString()
+      //  val myDir = File("$root/wecompli/incident_images")
+        //myDir.mkdirs()
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
       /*  val generator = Random()
         var n = 10000
@@ -180,10 +197,18 @@ class AccidentReportActivity :AppCompatActivity(){
     }
 
     fun cretefileforwitness2sign(bitmap: Bitmap) {
+        val filename="/wecompli/incident_images"
         accidentReportViewBind!!.imgwiteness2!!.isDrawingCacheEnabled = true
         val bmap = accidentReportViewBind!!.imgwiteness2!!.drawingCache
-        val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/incident_images")
+        //val root = Environment.getExternalStorageDirectory().toString()
+      //  val myDir = File("$root/wecompli/incident_images")
+       // myDir.mkdirs()
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
        /* val generator = Random()
         var n = 10000
@@ -202,10 +227,18 @@ class AccidentReportActivity :AppCompatActivity(){
         }
     }
     fun cretefileforsignfromcompleted(bitmap: Bitmap) {
+        val filename="/wecompli/incident_images"
         accidentReportViewBind!!.img_sign_completedby!!.isDrawingCacheEnabled = true
         val bmap = accidentReportViewBind!!.img_sign_completedby!!.drawingCache
-        val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/incident_images")
+      //  val root = Environment.getExternalStorageDirectory().toString()
+      //  val myDir = File("$root/wecompli/incident_images")
+      //  myDir.mkdirs()
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
        /* val generator = Random()
         var n = 10000
@@ -226,10 +259,18 @@ class AccidentReportActivity :AppCompatActivity(){
     }
 
     fun cretefileforsignfromcompletedinjuredperson(bitmap: Bitmap) {
+        val filename="/wecompli/incident_images"
         accidentReportViewBind!!.img_injuredperson!!.isDrawingCacheEnabled = true
         val bmap = accidentReportViewBind!!.img_injuredperson!!.drawingCache
-        val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/incident_images")
+      //  val root = Environment.getExternalStorageDirectory().toString()
+    //    val myDir = File("$root/wecompli/incident_images")
+      //  myDir.mkdirs()
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
        /* val generator = Random()
         var n = 10000
@@ -483,8 +524,10 @@ class AccidentReportActivity :AppCompatActivity(){
         builder.addFormDataPart("witness_2nd_person_name", accidentReportViewBind!!.patient2!!.text.toString())
         builder.addFormDataPart("witness_2nd_signed_date", accidentReportViewBind!!.tv_date2!!.text.toString())
         builder.addFormDataPart("form_completed_person_name", accidentReportViewBind!!.et_complientby!!.text.toString())
+        if(form_completed_person_signed!=null)
         builder.addFormDataPart("form_completed_person_signed", "formcompleted"+".jpg", okhttp3.RequestBody.create(
             MediaType.parse("image/jpeg"), form_completed_person_signed))
+        if(form_completed_injured_person_signed!=null)
         builder.addFormDataPart("form_completed_injured_person_signed", "formcompleted_inj_perso"+".jpeg", okhttp3.RequestBody.create(
             MediaType.parse("image/jpeg"), form_completed_injured_person_signed))
         //paramObject.put("form_completed_person_signed", accidentReportViewBind!!.et_postcodewe2!!.text.toString())

@@ -47,14 +47,18 @@ class CheckSummeryListAdapter(
                holder.tv_lastcheckdate.setText("Last Checked at: "+listvalue.get(position).last_checked_at)
 
             }else {
-             checked_percentage= ((listvalue!!.get(position).checksCount.toInt() * 100) / listvalue!!.get(position).totalChecksCount.toInt())
-             holder.custom_seek_indicator.setProgress(checked_percentage.toFloat())
-             holder.custom_seek_indicator.setIndicatorTextFormat("\${PROGRESS} %")
+            try {
+                checked_percentage= ((listvalue!!.get(position).checksCount.toInt() * 100) / listvalue!!.get(position).totalChecksCount.toInt())
+                holder.custom_seek_indicator.setProgress(checked_percentage.toFloat())
+                holder.custom_seek_indicator.setIndicatorTextFormat("\${PROGRESS} %")
+
+
+
             // if (checked_percentage<=0) {
             //  summeryItemView.seekBarWithProgress.setEnabled(false);
              holder.custom_seek_indicator.setUserSeekAble(false)
 
-            if (!listvalue.get(position).categoryNote.equals("") ||listvalue.get(position).categoryNote!=null)
+            if (!listvalue!!.get(position).categoryNote.equals("") ||listvalue.get(position).categoryNote!=null)
               holder.check_note_text.setText(listvalue.get(position).categoryNote)
             else
                 holder.check_note_text.setText("-------------")
@@ -74,6 +78,9 @@ class CheckSummeryListAdapter(
                 holder.seek_green.setProgress(checked_percentage)
                 holder.seek_green.setOnTouchListener(View.OnTouchListener { v, event -> true })
                 // summeryItemView.seek_green.setEnabled(false);
+            }
+                }catch (e:Exception){
+                e.printStackTrace()
             }
         }
 

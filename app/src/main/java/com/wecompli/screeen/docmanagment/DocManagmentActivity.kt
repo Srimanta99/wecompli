@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -163,6 +164,7 @@ class DocManagmentActivity:AppCompatActivity() {
         }
     }
     private fun onCaptureImageResult(data: Intent) {
+        val filename:String="/wecompli/document"
         val thumbnail = data.extras!!.get("data") as Bitmap?
         /* val bytes = ByteArrayOutputStream()
          thumbnail!!.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
@@ -176,13 +178,21 @@ class DocManagmentActivity:AppCompatActivity() {
               val destination = File(Environment.getExternalStorageDirectory(), "fault_image"+ ".jpg")*/
             // val destination = File(Environment.getExternalStorageDirectory(), System.currentTimeMillis().toString() + ".jpg")
 
-            val root = Environment.getExternalStorageDirectory().toString()
-            val myDir = File("$root/wecompli/document")
+          //  val root = Environment.getExternalStorageDirectory().toString()
+          //  val myDir = File("$root/wecompli/document")
+            //myDir.mkdirs()
+            var myDir:File?=null
+            if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+                myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+            }else{
+                myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+            }
             myDir.mkdirs()
             /* val generator = Random()
               var n = 100
               n = generator.nextInt(n)*/
-            val fname = "doc_image.jpg"
+           // val fname = "doc_image.jpg"
+            val fname = "doc_image_"+docImagelist.size+".jpg"
             val file = File(myDir, fname)
             val fo: FileOutputStream
             if (file.exists())
@@ -213,18 +223,25 @@ class DocManagmentActivity:AppCompatActivity() {
     }
     private fun onSelectFromGalleryResult(data: Intent?) {
         var bm: Bitmap? = null
+        val filename:String="/wecompli/document"
         if (data != null) {
             try {
-                bm =
-                    MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, data.data)
+                bm = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, data.data)
                 /*  val bytes = ByteArrayOutputStream()
                   bm!!.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
                   val destination = File(Environment.getExternalStorageDirectory(), "fault_image"+ ".jpg")*/
                 // val destination = File(Environment.getExternalStorageDirectory(), System.currentTimeMillis().toString() + ".jpg")
 
-                val root = Environment.getExternalStorageDirectory().toString()
-                val myDir = File("$root/wecompli/document")
+             //   val root = Environment.getExternalStorageDirectory().toString()
+              //  val myDir = File("$root/wecompli/document")
+                var myDir:File?=null
+                if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+                    myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+                }else{
+                    myDir =  File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + filename);
+                }
                 myDir.mkdirs()
+                     //.mkdirs()
                 /* val generator = Random()
                   var n = 100
                   n = generator.nextInt(n)*/

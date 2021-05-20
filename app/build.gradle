@@ -24,8 +24,8 @@ android {
         applicationId "com.wecompli"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 34
-        versionName "3.4"
+        versionCode 36
+        versionName "3.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

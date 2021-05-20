@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.Environment.DIRECTORY_DOCUMENTS
 import android.util.Base64
 import android.util.Base64OutputStream
 import android.view.LayoutInflater
@@ -25,6 +26,7 @@ import com.wecompli.network.ApiInterface
 import com.wecompli.network.NetworkUtility
 import com.wecompli.network.Retrofit
 import com.wecompli.utils.ApplicationConstant
+import com.wecompli.utils.customalert.TapToSignDialog
 import com.wecompli.utils.sheardpreference.AppSheardPreference
 import com.wecompli.utils.sheardpreference.PreferenceConstent
 import okhttp3.*
@@ -61,10 +63,12 @@ class CheckTapToSignActivity:AppCompatActivity() {
     fun isWriteStoragePermissionGranted(): Boolean {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) === PackageManager.PERMISSION_GRANTED) {
+              //  Toast.makeText(this@CheckTapToSignActivity, "Permission grand.", Toast.LENGTH_LONG).show()
                 taptosign()
                 return true
             } else {
                 // Log.v(TAG,"Permission is revoked2");
+                //Toast.makeText(this@CheckTapToSignActivity, "Permission not grand.", Toast.LENGTH_LONG).show()
                 ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.WRITE_EXTERNAL_STORAGE), 2)
                 return false
             }
@@ -83,13 +87,38 @@ class CheckTapToSignActivity:AppCompatActivity() {
                       taptosign()
                   }
               }
+              3->{
+                  if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                      TapToSignDialog(this).show()
+                  }
+              }
           }
     }
-    private fun taptosign() {
+    fun taptosign() {
+       val filename:String="/wecompli/taptosign"
+       // File(Environment.getExternalStorageDirectory() + "/wecompli/taptosign");
+/*
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            wallpaperDirectory = new File(Environment.getExternalStorageDirectory().getPath() + IMAGE_DIRECTORY);
+            Log.e("ggg","--gg");
+        } else {
+
+            Log.e("lll","--ll");
+            wallpaperDirectory = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOCUMENTS).getPath() + IMAGE_DIRECTORY);
+        }
+        // have the object build the directory structure, if needed.
+        if (!wallpaperDirectory.exists()) {
+            wallpaperDirectory.mkdirs();
+        }*/
         tapToSignViewBind!!.img_sign!!.setDrawingCacheEnabled(true)
         val bmap = tapToSignViewBind!!.img_sign!!.getDrawingCache()
         val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File("$root/wecompli/taptosign")
+        var myDir:File?=null
+        if (Build.VERSION_CODES.R > Build.VERSION.SDK_INT) {
+            myDir = File(Environment.getExternalStorageDirectory().getPath()+filename)
+        }else{
+            myDir =  File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOCUMENTS).getPath() + filename);
+        }
         myDir.mkdirs()
        // val generator = Random()
       //  var n = 10000
@@ -102,6 +131,7 @@ class CheckTapToSignActivity:AppCompatActivity() {
             val out = FileOutputStream(file)
             // bmap.setHasAlpha(true);
             bmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
+           // Toast.makeText(this@CheckTapToSignActivity, "File save.", Toast.LENGTH_LONG).show()
             out.flush()
             out.close()
         } catch (e: Exception) {
@@ -168,6 +198,7 @@ class CheckTapToSignActivity:AppCompatActivity() {
     }
 
     fun submitfalutusingmultipartBulider(file: File){
+        //Toast.makeText(this@CheckTapToSignActivity, "path"+file.absolutePath, Toast.LENGTH_LONG).show()
         val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(this, "Please Wait..", false)
         val builder = MultipartBody.Builder().setType(MultipartBody.FORM)
@@ -180,7 +211,8 @@ class CheckTapToSignActivity:AppCompatActivity() {
         builder.addFormDataPart("process_remark", tapToSignViewBind!!.et_input!!.text.toString())
         builder.addFormDataPart("process_status",PreferenceConstent.process_status)
         builder.addFormDataPart("checks_process_log_entry_date",AppSheardPreference(this!!).getvalue_in_preference(PreferenceConstent.chk_selectiondate))
-        builder.addFormDataPart("process_file[]", file.name, okhttp3.RequestBody.create(MediaType.parse("image/jpeg"), file))
+       if(file.exists())
+        builder.addFormDataPart("process_file[]", file.name, RequestBody.create(MediaType.parse("image/jpeg"), file))
         val requestBody = builder.build()
         var request: Request? = null
         request = Request.Builder()
@@ -213,6 +245,8 @@ class CheckTapToSignActivity:AppCompatActivity() {
 
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 customProgress.hideProgress()
+                Toast.makeText(this@CheckTapToSignActivity,"error "+ e.toString(), Toast.LENGTH_LONG).show()
+
             }
         })
 

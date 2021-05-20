@@ -474,14 +474,18 @@ class AccidentReportOnclick(
                     customProgress.hideProgress()
                     if (response.body()!!.status){
                         locationlist= response.body()!!.row
-                        accidentLocationDialog = AccidentLocationDialog(accidentReportActivity, locationlist,object :OnItemClickInterface{
-                            override fun OnItemClick(position: Int) {
-                                     accidentReportViewBind.tv_select_location!!.setText(locationlist.get(position).location_name)
-                                           bodymaptext=locationlist.get(position).location_name;
-                                     accidentLocationDialog!!.dismiss()
-                            }
-                        })
-                        accidentLocationDialog!!.show()
+                        if(locationlist.size>0) {
+                            accidentLocationDialog = AccidentLocationDialog(accidentReportActivity, locationlist,
+                                object : OnItemClickInterface {
+                                    override fun OnItemClick(position: Int) {
+                                        accidentReportViewBind.tv_select_location!!.setText(locationlist.get(position).location_name)
+                                        bodymaptext = locationlist.get(position).location_name;
+                                        accidentLocationDialog!!.dismiss()
+                                    }
+                                })
+                            accidentLocationDialog!!.show()
+                        }else
+                            Alert.showalert(accidentReportActivity,"No location found.")
                     }
                 }
 
