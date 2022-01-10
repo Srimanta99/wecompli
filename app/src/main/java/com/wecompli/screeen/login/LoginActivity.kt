@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -49,8 +50,16 @@ class LoginActivity : AppCompatActivity() {
         if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.iS_Checked_login) != null &&
             AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.iS_Checked_login) == "1") {
 
-            loginViewBind.username!!.setText(AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.username_key))
-            loginViewBind.et_pass.setText(AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.password_key))
+            loginViewBind.username!!.setText(
+                AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.username_key
+                )
+            )
+            loginViewBind.et_pass.setText(
+                AppSheardPreference(this).getvalue_in_preference(
+                    PreferenceConstent.password_key
+                )
+            )
             loginViewBind.chk_remember.isChecked = true
 
         }
@@ -69,19 +78,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setselctedlanguage() {
-        if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.selectedlanagage) == resources.getString(R.string.english_code)) {
+        if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.selectedlanagage) == resources.getString(
+                R.string.english_code
+            )) {
             loginViewBind.tv_language.text = resources.getString(R.string.english)
             //  changelanguage(getResources().getString(R.string.english_code));
         } else if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.selectedlanagage) == resources.getString(
-                R.string.german_code)) {
+                R.string.german_code
+            )) {
             loginViewBind.tv_language.text = resources.getString(R.string.german)
             //changelanguage(getResources().getString(R.string.german_code));
         } else if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.selectedlanagage) == resources.getString(
-                R.string.dutch_code)) {
+                R.string.dutch_code
+            )) {
             loginViewBind.tv_language.text = resources.getString(R.string.dutch)
             //changelanguage(getResources().getString(R.string.dutch_code));
         } else if (AppSheardPreference(this).getvalue_in_preference(PreferenceConstent.selectedlanagage) == resources.getString(
-                R.string.spanish_code)) {
+                R.string.spanish_code
+            )) {
             loginViewBind.tv_language.text = resources.getString(R.string.spnish)
             // changelanguage(getResources().getString(R.string.spanish_code));
         } else {
@@ -93,7 +107,10 @@ class LoginActivity : AppCompatActivity() {
     fun loadIMEI() {
         // Check if the READ_PHONE_STATE permission is already available.
         try {
-            if (Build.VERSION.SDK_INT >= 23 && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !== PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= 23 && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_PHONE_STATE
+                ) !== PackageManager.PERMISSION_GRANTED) {
                 requestReadPhoneStatePermission()
             } else {
                 doPermissionGrantedStuffs()
@@ -105,7 +122,11 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
 
         if (requestCode == MY_PERMISSIONS_REQUEST_READ_PHONE_STATE) {
             // Received permission result for READ_PHONE_STATE permission.est.");
@@ -137,7 +158,10 @@ class LoginActivity : AppCompatActivity() {
     private fun requestPermission() {
         val currentAPIVersion = Build.VERSION.SDK_INT
         if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this@LoginActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) !== PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(
+                    this@LoginActivity,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) !== PackageManager.PERMISSION_GRANTED) {
                 val alertBuilder = android.app.AlertDialog.Builder(this@LoginActivity)
                 alertBuilder.setCancelable(true)
                 alertBuilder.setTitle(resources.getString(R.string.permessionnecessay))
@@ -169,9 +193,10 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("MissingPermission")
     fun doPermissionGrantedStuffs() {
         //Have an  object of TelephonyManager
-        val tm = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        //02/11
+           //  val tm = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         //Get IMEI Number of Phone  //////////////// for this example i only need the IMEI
-        IMEINumber = tm.deviceId
+            //  IMEINumber = tm.deviceId
         /* androidDeviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);*/
         //  Get the device software version
@@ -249,10 +274,30 @@ class LoginActivity : AppCompatActivity() {
          * }
          */
         // Now read the desired content to a textview.
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            IMEINumber = Settings.Secure.getString(
+                applicationContext.getContentResolver(),
+                Settings.Secure.ANDROID_ID
+            )
+        } else {
+            val mTelephony = applicationContext.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
+            if (mTelephony.deviceId != null) {
+                IMEINumber = mTelephony.deviceId
+            } else {
+                IMEINumber = Settings.Secure.getString(
+                    applicationContext.getContentResolver(),
+                    Settings.Secure.ANDROID_ID
+                )
+            }
+        }
     }
 
     private fun requestReadPhoneStatePermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_PHONE_STATE)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.READ_PHONE_STATE
+            )) {
             // Provide an additional rationale to the user if the permission was not granted
             // and the user would benefit from additional context for the use of the permission.
             // For example if the user has previously denied the permission.

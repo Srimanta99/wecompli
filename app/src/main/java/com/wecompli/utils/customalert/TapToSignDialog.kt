@@ -27,7 +27,7 @@ class TapToSignDialog(val checkTapToSignActivity: CheckTapToSignActivity) :AppCo
                 checkTapToSignActivity.imagesignAvaliable=true
                 val bitmap = signDrawView!!.bitmap
                 checkTapToSignActivity.tapToSignViewBind!!.tv_tap_to_sign!!.setText("")
-                   checkTapToSignActivity.tapToSignViewBind!!.img_sign!!.setImageBitmap(bitmap)
+                checkTapToSignActivity.tapToSignViewBind!!.img_sign!!.setImageBitmap(bitmap)
                     //  if (bitmap!=null || !bitmap.equals("")) {
 
                 dismiss()

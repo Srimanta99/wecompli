@@ -65,10 +65,9 @@ class AccidentReportActivity :AppCompatActivity(){
     var form_completed_person_signed:java.io.File? = null
     var form_completed_injured_person_signed:java.io.File? = null
     var accident_injuries_image:File?=null
+    var ispermessionaallow:Boolean?=false
    // var filewitness1:File?=null
     //var filewitness2:File?=null
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,6 +77,15 @@ class AccidentReportActivity :AppCompatActivity(){
         accidentReportOnclick=AccidentReportOnclick(this,accidentReportViewBind!!)
         callservaritylevelApi()
         setvalue()
+        checkfileaccesspermession();
+    }
+
+     fun checkfileaccesspermession() {
+        if (  ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !== PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf<String>(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 33)
+        }else
+            ispermessionaallow=true;
+
     }
 
     private fun callservaritylevelApi() {
@@ -113,6 +121,8 @@ class AccidentReportActivity :AppCompatActivity(){
                     } else if (response.code() == 401) {
 
 
+                    }else if(response.code()==33){
+                        ispermessionaallow=true;
                     }
                 }
 

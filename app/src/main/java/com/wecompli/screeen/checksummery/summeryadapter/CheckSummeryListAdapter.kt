@@ -51,12 +51,9 @@ class CheckSummeryListAdapter(
                 checked_percentage= ((listvalue!!.get(position).checksCount.toInt() * 100) / listvalue!!.get(position).totalChecksCount.toInt())
                 holder.custom_seek_indicator.setProgress(checked_percentage.toFloat())
                 holder.custom_seek_indicator.setIndicatorTextFormat("\${PROGRESS} %")
-
-
-
-            // if (checked_percentage<=0) {
-            //  summeryItemView.seekBarWithProgress.setEnabled(false);
-             holder.custom_seek_indicator.setUserSeekAble(false)
+               // if (checked_percentage<=0) {
+               //  summeryItemView.seekBarWithProgress.setEnabled(false);
+                holder.custom_seek_indicator.setUserSeekAble(false)
 
             if (!listvalue!!.get(position).categoryNote.equals("") ||listvalue.get(position).categoryNote!=null)
               holder.check_note_text.setText(listvalue.get(position).categoryNote)

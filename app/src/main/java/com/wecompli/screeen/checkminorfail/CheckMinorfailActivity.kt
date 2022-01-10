@@ -17,10 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import com.koushikdutta.async.http.AsyncHttpClient
-import com.koushikdutta.async.http.AsyncHttpPost
-import com.koushikdutta.async.http.AsyncHttpResponse
-import com.koushikdutta.async.http.body.MultipartFormDataBody
+
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.apiresponsemodel.checkelementdetails.ElementDetailsRow
@@ -353,7 +350,7 @@ class CheckMinorfailActivity:AppCompatActivity() {
         }
     }
 
-    fun submitimageusingasyntask(){
+    /*fun submitimageusingasyntask(){
         val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(this, "Please Wait..", false)
         val post = AsyncHttpPost(NetworkUtility.BASE_URL + NetworkUtility.COMPONENET_CHECK_SUBMIT)
@@ -406,7 +403,7 @@ class CheckMinorfailActivity:AppCompatActivity() {
             }
 
         })
-    }
+    }*/
 
     fun submitfalutusingmultipartBulider(checkProcessLogId: String){
 

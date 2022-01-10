@@ -167,25 +167,37 @@ class AccidentReportOnclick(
            accidentReportActivity.showalertforImageSelectio()
         }
         R.id.rl_sign_behalf->{
+            if(accidentReportActivity.ispermessionaallow!!)
             TaptoSignSubmitAccidentReport(accidentReportActivity,accidentReportViewBind!!.img_signbehlf!!,
                 accidentReportViewBind!!.tv_signedconfirm!!, PreferenceConstent.SignonBehalf).show();
+            else
+                accidentReportActivity!!.checkfileaccesspermession()
         }
         R.id.rl_witness1->{
+            if(accidentReportActivity.ispermessionaallow!!)
             TaptoSignSubmitAccidentReport(accidentReportActivity,accidentReportViewBind.img_witeness1,
                 accidentReportViewBind.tv_witeness1,PreferenceConstent.Signbywiteness1).show();
+            else
+                accidentReportActivity!!.checkfileaccesspermession()
         }
         R.id.rl_witness2->{
+            if(accidentReportActivity.ispermessionaallow!!)
             TaptoSignSubmitAccidentReport(accidentReportActivity,accidentReportViewBind.imgwiteness2,accidentReportViewBind.tv_sin_witess2,PreferenceConstent.Signbywiteness2).show();
-
+            else
+                accidentReportActivity!!.checkfileaccesspermession()
         }
         R.id.rl_completed->{
+            if(accidentReportActivity.ispermessionaallow!!)
             TaptoSignSubmitAccidentReport(accidentReportActivity,accidentReportViewBind.img_sign_completedby,accidentReportViewBind.tv_signcompleted,PreferenceConstent.SignCompletredby).show();
-
+            else
+                accidentReportActivity!!.checkfileaccesspermession()
         }
 
         R.id.rl_injured->{
+            if(accidentReportActivity.ispermessionaallow!!)
             TaptoSignSubmitAccidentReport(accidentReportActivity,accidentReportViewBind.img_injuredperson!!,accidentReportViewBind.tv_sign_injuredperson,PreferenceConstent.Signbyinjuredpuresn).show();
-
+            else
+                accidentReportActivity!!.checkfileaccesspermession()
         }
         R.id.tv_bodymap->{
             val intent = Intent(

@@ -17,8 +17,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import com.koushikdutta.async.http.AsyncHttpPost
-import com.koushikdutta.async.http.body.MultipartFormDataBody
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.apiresponsemodel.checkelementdetails.ElementDetailsRow
