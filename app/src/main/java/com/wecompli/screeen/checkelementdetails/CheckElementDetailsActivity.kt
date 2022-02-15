@@ -1,13 +1,18 @@
 package com.wecompli.screeen.checkelementdetails
 
 import android.Manifest
+import android.content.ContentResolver
+
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
@@ -46,10 +51,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.IOException
-import java.io.Serializable
+import java.io.*
 
 
 class CheckElementDetailsActivity: AppCompatActivity() {
@@ -68,7 +70,10 @@ class CheckElementDetailsActivity: AppCompatActivity() {
      var selectedposition:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val view:View=LayoutInflater.from(this).inflate(R.layout.activity_check_element_details, null)
+        val view:View=LayoutInflater.from(this).inflate(
+            R.layout.activity_check_element_details,
+            null
+        )
         setContentView(view)
 
         checkElementDetatDetailsViewBind= CheckElementDetatDetailsViewBind(this, view)
@@ -128,11 +133,29 @@ class CheckElementDetailsActivity: AppCompatActivity() {
 
     private fun getcameraoutputfile(data: Intent?) {
         thumbnail = data!!.getExtras()!!.get("data") as Bitmap?
-        val stream = ByteArrayOutputStream()
+
+        destination =  File(Environment.getExternalStorageDirectory(), "wc_cam_check" + ".jpg")
+        var out: FileOutputStream? = null
+        try {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
+                out = getFOSForPublicCameraDirectory(destination.getName())
+            } else {
+                out = FileOutputStream(destination)
+            }
+            thumbnail!!.compress(Bitmap.CompressFormat.PNG, 100, out)
+        } catch (e: IOException) {
+           e.printStackTrace()
+        }
+
+
+       /* val stream = ByteArrayOutputStream()
         thumbnail!!.compress(Bitmap.CompressFormat.JPEG, 100, stream)
         byteArray = stream.toByteArray()
         val tempUri: Uri = getImageUri(applicationContext!!, thumbnail!!)
-         destination = File(getRealPathFromURI(tempUri))
+         destination = File(getRealPathFromURI(tempUri))*/
+
+
+
         /*val bytes = ByteArrayOutputStream()
         thumbnail!!.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
         val root = Environment.getExternalStorageDirectory().toString()
@@ -163,6 +186,31 @@ class CheckElementDetailsActivity: AppCompatActivity() {
         }*/
        CameraImageShowDialog(this, elementdetailsrow, thumbnail!!).show()
     }
+
+    private fun getFOSForPublicCameraDirectory(fileName: String): FileOutputStream? {
+        var fos: FileOutputStream? = null
+        val contentResolver: ContentResolver = getContentResolver()
+        val imageUri = getURIForPublicCameraDirectory(fileName)
+        try {
+            fos = contentResolver!!.openOutputStream(imageUri) as FileOutputStream?
+        } catch (e: java.lang.Exception) {
+           e.printStackTrace()
+        }
+        return fos
+    }
+
+    private fun getURIForPublicCameraDirectory(fileName: String): Uri {
+        val contentResolver: ContentResolver = getContentResolver()
+        val contentValues = ContentValues()
+        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
+        contentValues.put(
+            MediaStore.MediaColumns.RELATIVE_PATH,
+            Environment.DIRECTORY_DCIM + File.separator.toString() + "wecompli" + File.separator.toString() + "camera" + File.separator.toString() + "check"
+        )
+        return contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)!!
+    }
+
     fun getImageUri(inContext: Context, inImage: Bitmap): Uri {
         val bytes = ByteArrayOutputStream()
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
@@ -218,10 +266,28 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                         rowlist.clear()
                         // rowlist= response.body()!!.elementrow!!
                         for (i in 0 until response.body()!!.elementrow!!.size) {
-                            var elementDetailsRow: ElementDetailsRow = response.body()!!.elementrow!!.get(i)
+                            var elementDetailsRow: ElementDetailsRow =
+                                response.body()!!.elementrow!!.get(
+                                    i
+                                )
                             rowlist!!.add(elementDetailsRow)
                         }
                         // setupAdapter()
+                        if (rowlist.size == 0) {
+                            Alert.showalertforallchecksubmit(
+                                this@CheckElementDetailsActivity,
+                                "All Checks Done."
+                            )
+                            /*Handler().postDelayed({
+                               val intent=Intent()
+                               intent.putExtra("componet",checkcomponent)
+                               intent.putExtra("date",checkdate)
+                               intent.putExtra("sideid",sideid)
+                               setResult(RESULT_OK,intent)
+                               finish()
+                           },3000)*/
+
+                        }
                         elementDetailsAdapter!!.notifyDataSetChanged()
 
 
@@ -253,8 +319,11 @@ class CheckElementDetailsActivity: AppCompatActivity() {
         checkElementDetatDetailsViewBind!!.recview_checkdetails.layoutManager=layoutmanager
         val dividerItemDecoration = DividerItemDecoration(
             checkElementDetatDetailsViewBind!!.recview_checkdetails.getContext(),
-            R.drawable.item_divider)
-        checkElementDetatDetailsViewBind!!.recview_checkdetails.addItemDecoration(dividerItemDecoration)
+            R.drawable.item_divider
+        )
+        checkElementDetatDetailsViewBind!!.recview_checkdetails.addItemDecoration(
+            dividerItemDecoration
+        )
         checkElementDetatDetailsViewBind!!.recview_checkdetails.adapter=elementDetailsAdapter
     }
 
@@ -462,7 +531,10 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                 ), selectedSiteSessionForCheck!!.selected_site, gsonObject!!
             )
             callApi.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.code() == 200) {
@@ -478,7 +550,11 @@ class CheckElementDetailsActivity: AppCompatActivity() {
                                 )
                         }
                     } else
-                        Toast.makeText(this@CheckElementDetailsActivity, "Try later. Something Wrong.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@CheckElementDetailsActivity,
+                            "Try later. Something Wrong.",
+                            Toast.LENGTH_LONG
+                        ).show()
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
